@@ -36,9 +36,57 @@
     <br>
 </p>
 
+<!-- 2. 기타 <input> 태그 -->
+<p>
+    <!-- type="password" : 비밀번호 입력용  -->
+    <input type="password" placeholder="비밀번호">
+    <br>
+    <!-- type="number" : 숫자 입력용 -->
+    <input type="number" min="1" max="12">
+    <br>
+    <!-- type="email" : 이메일 입력용 -->
+    <input type="email" placeholder="이메일">
+    <br>
+</p>
 
+<!-- 3.<textarea> 태그 -->
+    <p>
+        <!-- 디폴트 2행 20열 -->
+        <textarea></textarea>
+        <br>
+        <!-- rows 속성 : 행, cols 속성 : 열 -->
+        <textarea rows="3" cols="30"></textarea>
+        <br>
+        <!-- value 속성 대신 태그 내부 텍스트가 입력된 값을 저장한다. -->
+        <textarea>안녕하세요</textarea>
+    </p>
 
+    <!-- 4. 단일 선택 : <input type="radio"> -->
+    <p>
+        <!-- name 속성 : 같은 name을 가지는 radio가 하나처럼 동작한다. -->
+        <input type="radio" name="gender">남
+        <input type="radio" name="gender">여
+        <br>
+        <!-- value 속성 : 어떤 radio를 선택했는지 알기 위해서 반드시 추가해야 한다. -->
+        <input type="radio" name="gender" value="male">남
+        <input type="radio" name="gender" value="female">여
+    </p>
 
+    <!-- 5. 다중 선택 : <input type="checkbox">-->
+    <p>
+        <!-- 단독 사용이 가능하다. -->
+        <input type="checkbox">모두 동의합니다
+        <br>
+        <!-- name 속성 : 같은 name을 가진 checkbox들은 하나의 배열처럼 동작한다. -->
+        <input type="checkbox" name="hobbies">운동
+        <input type="checkbox" name="hobbies">여행
+        <br>
+        <!-- value 속성 : 어떤 checkbox를 선택했는지 알기 위해서 반드시 추가해야 한다. -->
+        <input type="checkbox" name="hobbies" value="1">운동
+        <input type="checkbox" name="hobbies" value="2">여행
+        <input type="checkbox" name="hobbies" value="4">독서
+        <input type="checkbox" name="hobbies" value="8">영화
+    </p>
 
 </body>
 </html>
