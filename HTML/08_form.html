@@ -8,50 +8,48 @@
 </head>
 <body>
     
-<!-- 1. <input type="text"> 태그 -->
-<p>
-    <!-- 디폴트로 type="text" 적용 -->
-    <input>
-    <br>
-    <!-- size 속성 : 입력 상자 크기는 5 -->
-    <input type="text" size="5">
-    <br>
-    <!-- maxlength 속성 : 입력 상자 크기는5, 입력 가능한 최대 글자수는 4글자 -->
-    <input type="text" size="5" maxlength="4">
-    <br>
-    <!-- placeholder 속성 : 입력 메시지-->
-    <input type="text"  placeholder="검색어를 입력하세오">
-    <br>
-    <!-- required 속성 : 필수 입력 -->
-    <input typr="text" required>
-    <br>
-    <!-- value 속성 : 입력한 값이 저장되는 속성 -->
-    <input type="text" value="날씨">
-    <br>
-    <!-- readonly 속성 : 입력된 값을 수정할 수 없게 만듦 -->
-    <input type="text" value="영희야 사랑해" readonly>
-    <br>
-    <!-- disabled 속성 : 입력상자를 사용할 수 없게 만듦 -->
-    <input type="text" disabled="disabled">
-    <br>
-</p>
-
-<!-- 2. 기타 <input> 태그 -->
-<p>
-    <!-- type="password" : 비밀번호 입력용  -->
-    <input type="password" placeholder="비밀번호">
-    <br>
-    <!-- type="number" : 숫자 입력용 -->
-    <input type="number" min="1" max="12">
-    <br>
-    <!-- type="email" : 이메일 입력용 -->
-    <input type="email" placeholder="이메일">
-    <br>
-</p>
-
-<!-- 3.<textarea> 태그 -->
+    <!-- 1. <input type="text"> 태그 -->
     <p>
-        <!-- 디폴트 2행 20열 -->
+        <!-- 디폴트로 type="text" 적용 -->
+        <input>
+        <br>
+        <!-- size 속성 : 입력 상자 크기는 5 -->
+        <input type="text" size="5">
+        <br>
+        <!-- maxlength 속성 : 입력 가능한 최대 글자수는 4글자 -->
+        <input type="text" maxlength="4">
+        <br>
+        <!-- placeholder 속성 : 입력 메시지 -->
+        <input type="text" placeholder="검색어를 입력하세요">
+        <br>
+        <!-- required 속성 : 필수 입력 -->
+        <input type="text" required>
+        <br>
+        <!-- value 속성 : 입력한 값이 저장되는 속성 -->
+        <input type="text" value="날씨">
+        <br>
+        <!-- readonly 속성 : 입력된 값을 수정할 수 없게 만듬 -->
+        <input type="text" value="영희야 사랑해" readonly>
+        <br>
+        <!-- disabled 속성 : 입력 상자를 사용할 수 없도록 만듬 -->
+        <input type="text" disabled>
+    </p>
+
+    <!-- 2. 기타 <input> 태그 -->
+    <p>
+        <!-- type="password" : 비밀번호 입력용 -->
+        <input type="password" placeholder="비밀번호">
+        <br>
+        <!-- type="number" : 숫자 입력용 -->
+        <input type="number" min="1" max="12">
+        <br>
+        <!-- type="email" : 이메일 입력용 -->
+        <input type="email" placeholder="이메일">
+    </p>
+
+    <!-- 3. <textarea> 태그 -->
+    <p>
+        <!-- 디폴트 : 2행 20열 -->
         <textarea></textarea>
         <br>
         <!-- rows 속성 : 행, cols 속성 : 열 -->
@@ -63,7 +61,7 @@
 
     <!-- 4. 단일 선택 : <input type="radio"> -->
     <p>
-        <!-- name 속성 : 같은 name을 가지는 radio가 하나처럼 동작한다. -->
+        <!-- name 속성 : 같은 name을 가지는 radio가 하나의 변수처럼 동작한다. -->
         <input type="radio" name="gender">남
         <input type="radio" name="gender">여
         <br>
@@ -72,10 +70,10 @@
         <input type="radio" name="gender" value="female">여
     </p>
 
-    <!-- 5. 다중 선택 : <input type="checkbox">-->
+    <!-- 5. 다중 선택 : <input type="checkbox"> -->
     <p>
         <!-- 단독 사용이 가능하다. -->
-        <input type="checkbox">모두 동의합니다
+        <input type="checkbox"> 모두 동의합니다
         <br>
         <!-- name 속성 : 같은 name을 가진 checkbox들은 하나의 배열처럼 동작한다. -->
         <input type="checkbox" name="hobbies">운동
@@ -87,6 +85,276 @@
         <input type="checkbox" name="hobbies" value="4">독서
         <input type="checkbox" name="hobbies" value="8">영화
     </p>
+
+    <!-- 6. 목록 선택 : <select> 태그 -->
+    <p>
+        <!-- 하나의 option을 선택할 수 있다. -->
+        <select>
+            <option>naver.com</option>
+            <option>kakao.com</option>
+            <option>gmail.com</option>
+        </select>
+        <!-- multiple 속성 : 여러 개의 option을 선택할 수 있다. -->
+        <select multiple>
+            <option>서울</option>
+            <option>경기</option>
+            <option>인천</option>
+        </select>
+        <!-- name 속성  : <select> 태그에 작성한다. -->
+        <!-- value 속성 : <option> 태그에 작성한다. -->
+        <select name="direction">
+            <option value="">방향을 선택하세요</option>
+            <option value="east">동</option>
+            <option value="west">서</option>
+            <option value="south">남</option>
+            <option value="north">북</option>
+        </select>
+    </p>
+
+    <!-- 7. 입력과 목록 선택을 동시에 처리 : <input type="text"> 태그와 <datalist> 태그 -->
+    <p>
+        <input type="text" list="domain">
+        <datalist id="domain">
+            <option value="naver.com"/>
+            <option value="kakao.com"/>
+            <option value="gmail.com"/>
+        </datalist>
+    </p>
+
+    <!-- 8. 라벨 붙이기 : <label> 태그 -->
+    <p>
+        <!-- <label for="입력요소id속성값"> -->
+        <label for="male">
+            <input type="radio" name="gender" value="male" id="male">남
+        </label>
+        <label for="female">
+            <input type="radio" name="gender" value="female" id="female">여
+        </label>
+    </p>
+
+    <!--
+        9. <form> 태그
+            1) <form> 태그 내부에 입력 태그들을 배치한다.
+            2) 서브밋(submit)은 <form> 태그 단위로 이루어진다.
+                (1) 서브밋 : <form> 태그에 속한 모든 입력 태그들에 입력된 값을 서버측으로 보내는 것을 말한다.
+                (2) 서버 경로를 action 속성에 작성하고, 보내는 방법을 method 속성에 작성한다.
+            3) 주요 속성
+                (1) action
+                    ① 입력된 값을 전송할 서버의 주소(경로)
+                    ② 서버 내부 경로(URL Mapping)를 주로 작성
+                (2) method
+                    ① GET 방식
+                        - 디폴트 (생략 가능)
+                        - 전송할 데이터가 주소(URL)에 파라미터로 노출
+                        - 빠른 처리, 보안 취약
+                    ② POST 방식
+                        - 전송할 데이터가 본문에 포함되므로 노출되지 않음
+                        - 느린 처리, 보안 우수
+    -->
+    <!-- 
+        10. 버튼
+            1) <button type="submit">텍스트</button> : 서브밋, type="submit" 생략 가능
+            2) <input type="submit" value="텍스트">  : 서브밋
+            3) <input type="reset" value="텍스트"> : 입력값을 초기화
+            4) <input type="button" value="텍스트"> :아무일도 안하는 버튼, 직접 할 일을 지정해 줘야 함
+    -->
+    <p>
+        <form action="01_overview.html">
+            <label for="name">
+                이름 <input type="text" id="name">
+            </label>
+            <br>
+            <label for="age">
+                나이 <input type="number" id="age" min="0" max="100">
+            </label>
+            <br>
+            <input type="submit" value="전송">
+            <input type="reset" value="입력초기화">
+            <input type="button" value="일반버튼" onclick="alert('호호호')">
+        </form>
+    </p>
+
+    <!-- 11. 입력 요소의 그룹 : <fieldset> -->
+        <p>
+            <fieldset>
+                <legend>성별</legend>
+                <label for="male">
+                    <input type="radio" name="gender" value="male" id="male">남
+                </label>
+                <label for="female">
+                    <input type="radio" name="gender" value="female" id="female">여
+                </label>
+            </fieldset>
+        </p>
+
+
+        <!-- 연습문제1번 -->
+
+ <p>
+    <form method="post">
+
+        <table>
+            <tbody>
+                <tr>
+                    <label for="email">
+                        <td><input type="email" placeholder="이메일"></td>
+                    </label>
+                    <label for="password">
+                        <td><input type="password" placeholder="비밀번호"></td>
+                    </label>
+                    <td><input type="button" value="로그인"></td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</p>
+
+<!-- 연습문제2번 -->
+<p>
+    <form method="post">
+        <table>
+            <tbody>
+                <tr>
+                    <label for="id">
+                        <td> <input type="text" name="id" placeholder="아이디"></td>
+                    </label>
+                    <td rowspan="2"><input type="button" value="로그인"></td>
+                </tr>
+                <tr>
+                    <label for="password">
+                        <td><input type="password"  name="id" placeholder="비밀번호"></td>
+                    </label>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</p>
+
+
+<!-- 연습문제3번 -->
+<p>
+    <form method="post">
+        <table>
+            <thead>
+                <th colspan="2">개인 정보 작성</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td label for id >이름</label></td>
+                    <td> <input type="text" name="name" id="name"></td>
+                </tr>
+                <tr>
+                    <td>메일주소</td>
+                    <td> <input type="text" required></td>
+                </tr>
+                <tr>
+                    <td>연락처</td>
+                    <td><input type="text" required></td>
+                </tr>
+                <tr>
+                    <td>블로그/홈페이지</td>
+                    <td><input type="text" required></td>
+                </tr>
+                <tr>
+                    <th colspan="2"> <input type="submit" value="제출하기"> <input type="reset" value="다시작성"></th>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</p>
+
+<!-- 연습문제4번 -->
+
+<p>
+    <from>
+        
+                <a hred="https://www.naver.com">
+                <img alt="네이버" src="../../images/logo_naver.png" width="200">
+                </a>
+                <br>
+                <strong>아이디</strong>
+                <br>
+                <input type="text" size="10">@naver.com
+                <br>
+                <br>
+                <strong>비밀번호</strong>
+                <br>
+                <input type="password" size="10">
+                <br>
+                <br>
+                <strong>비밀번호 재확인</strong>
+                <br>
+                <input type="text" size="10">
+                <br>
+                <br>
+                <strong>이름</strong>
+                <br>
+                <input type="text" size="10">
+                <br>
+                <table>
+                    <tbody>
+                        <tr>
+                            <strong>생년월일</strong>
+                            <td> <input type="text" placeholder="년(4자)" size="3"></td>
+                            <td><select name="mon">
+                                <option value="">월</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
+                                <option>10</option>
+                                <option>11</option>
+                                <option>12</option>
+                            </select></td>
+                            <td><input type="text" placeholder="일" size="1"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br>
+                <strong>성별</strong>
+                <br>
+                <select>
+                    <option value="">성별</option>
+                    <option>남</option>
+                    <option>여</option>
+                </select>
+                <br>
+                <br>
+                <strong>본인 확인 이메일</strong>(선택)
+                <br>
+                <input type="text" placeholder="선택입력">
+                <br>
+                <br>
+                <strong>휴대전화</strong>
+                <br>
+                <select>
+                    <option value="">대한민국 +82</option>
+                    <option>010</option>
+                    <option>011</option>
+                    <option>012</option>
+                    <option>013</option>
+                </select>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td><input type="text" placeholder="전화번호 입력"> <input type="button" value="인증번호 " onclick="alert('인증번호가 전송되었습니다.')">
+                           </td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" placeholder="인증번호를 입력하세요"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br>
+                <input type="submit" value="가입하기">
+    </from>
+</p>
+
 
 </body>
 </html>
