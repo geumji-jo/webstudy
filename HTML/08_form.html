@@ -102,7 +102,8 @@
         </select>
         <!-- name 속성  : <select> 태그에 작성한다. -->
         <!-- value 속성 : <option> 태그에 작성한다. -->
-        <select name="direction">
+        <select name="direction">     
+            <!-- name을 준 이윤 나중에 서버에서 인식하기위해서 -->
             <option value="">방향을 선택하세요</option>
             <option value="east">동</option>
             <option value="west">서</option>
@@ -117,7 +118,7 @@
         <datalist id="domain">
             <option value="naver.com"/>
             <option value="kakao.com"/>
-            <option value="gmail.com"/>
+            <option value="gmail.com">
         </datalist>
     </p>
 
@@ -153,10 +154,11 @@
     -->
     <!-- 
         10. 버튼
-            1) <button type="submit">텍스트</button> : 서브밋, type="submit" 생략 가능
-            2) <input type="submit" value="텍스트">  : 서브밋
-            3) <input type="reset" value="텍스트"> : 입력값을 초기화
-            4) <input type="button" value="텍스트"> :아무일도 안하는 버튼, 직접 할 일을 지정해 줘야 함
+            1) <button type="submit">텍스트</button> : 서브밋, type="submit" 생략 가능 서브밋은 디폴트값
+            1-2)<button>텍스트</button> : 위에 1번이랑 똑같은 기능
+            1-1) <input type="submit" value="텍스트">  : 서브밋
+            2) <input type="reset" value="텍스트"> : 입력값을 초기화
+            3) <input type="button" value="텍스트"> :아무일도 안하는 버튼, 직접 할 일을 지정해 줘야 함
     -->
     <p>
         <form action="01_overview.html">

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<style>
+    /*1. 태그 선택자 */
+    h1 {
+        color:slateblue;
+    }
+
+</style>
+<h1>Hello World</h1>
+
+<style>
+    /* 2. 클래스 선택자 */
+    .paragraph {
+        color: coral;
+    }
+
+</style>
+<p class="paragraph">Hello World</p>
+
+<style>
+    /* 3. 아이디 선택자 */
+    #content {
+        color:cornflowerblue;
+    }
+
+</style>
+<p id="content">Hello World</p>
+
+<style>
+    /* 4. 자식 선택자 : > */
+    ul > li {
+        color: forestgreen;
+    }
+    ul > li > a {
+        color:forestgreen;
+        text-decoration: none;
+
+    }
+
+</style>
+<ul>
+    <li>
+        <a href="javascript:void(0)">spring</a>
+    </li>
+    <li><a href="javascript:void(0)">summer</a>
+    </li>
+    <li>
+        <a href="jajvascript:void(0)">autumn</a>
+    </li>
+    <li>
+        <a href="javascript:void(0)">winter</a>
+    </li>
+</ul>
+
+<style>
+    /* 5. 후손 선택자 : 공백*/
+    dl strong {
+        color:brown;
+    }
+</style>
+<dl>
+
+    <dt>
+        <strong>이름</strong>
+    </dt>
+    <dd>육개장사발면</dd>
+    <dt>
+        <strong>조리법</strong>
+    </dt>
+    <dd>뜨거운 물을 붓고 4분간 기다린다.</dd>
+</dl>
+
+<style>
+    /* 6. 모든 형제 : ~ */
+    .europe > h3 ~ p
+ {
+  color: hotpink;
+}
+</style>
+<div class="europe">
+    <h3>유럽</h3>
+    <p>프랑스</p>
+    <p>독일</p>
+    <p>스페인</p>
+</div>
+
+<style>
+    /* 7. 인접 형제 : + */
+    .asia > h3 + p {
+        color: blue;
+    }
+
+</style>
+<div class="asia">
+    <h3>아시아</h3>
+    <p>한국</p>
+    <p>태국</p>
+    <p>중국</p>
+</div>
+
+<style>
+    /*
+    8. 구조 선택자
+        1) : first-of-type      첫 번째 요소
+        2) : last-of-type       마지막 요소
+        3) : nth-of-type(n)     n번째 요소
+    */
+    .lunch > h3 + ol > li:nth-of-type(1)  {
+        color:red;
+    }
+</style>
+<div class="lunch">
+    <h3>오늘 점심 메뉴를 고르시오</h3>
+    <ol>
+        <li>제육볶음</li>
+        <li>육개장</li>
+        <li>순대국</li>
+        <li>돈까스</li>
+    </ol>
+</div>
+
+
+</body>
+</html>

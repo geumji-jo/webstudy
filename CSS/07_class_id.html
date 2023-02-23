@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        class 속성
+        1. 전역 속성(모든 태그가 가질 수 있는 속성)
+        2. 같은 스타일을 가진 경우에는 같은 class 속성을 지정해서 스타일을 적용한다.
+        3. 하나의 요소는 여러 class 속성을 가질 수 있다. (각 class 속성 값을 공백으로 구분한다.)
+        4. class 선택자
+            .클래스
+
+     -->
+     <style>
+         .red_text {
+             color :rgb(255, 0, 0);
+         }
+         .big_text {
+            font-size: 32px;
+         }
+     </style>
+
+    <p class="red_text big_text">Hello World</p>
+    <p class="red_text">Nice to meet you</p>
+
+    <!-- 
+        id 속성
+        1. 전역 속성(모든 태그가 가질 수 있는 속성)
+        2. HTML 문서 내의 모든 요소는 중복된 id 속성값을 가질 수 없다.
+        3. id 선택자
+            #아이디
+     -->
+     <style>
+        #a {
+            font-weight: 900;
+        }
+        #b {
+            text-align: center;
+        }
+     </style>
+     <p id="a">you Good?</p>
+     <p id="b">I'm fine.</p>
+
+</body>
+</html>
