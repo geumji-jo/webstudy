@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        /* div 공통 작업 */
+        div {
+            width: 100px;
+            height: 100px;
+            border: 1px solid gray;
+            text-align: center;
+            line-height: 100px;
+            box-sizing: border-box;
+        }
+    </style>
+    <style>
+        /* 
+            @-webkit-keyframes : 크롬, 사파리
+            @-moz-keyframes    : 파이어폭스     
+            @-0-keyframes      :오페라
+            @-ms-keyframes     :익스플로러
+            밴더프리픽스값은 하이픈 사이에 있는거다~
+        */
+        @keyframes sun {
+            /* from : 애니메이션 시작 지점(0%) */
+            from {
+                background-color: orange;
+                border-radius: 50px;
+                opacity: 0;     /*투명한 상태(안 보임) */
+
+            }
+            /* to : 애니메이션 종료 지점(100%) */
+            to {
+                background-color: green;
+                border-radius: 50px;
+                opacity: 1; /* 불투명한 상태(보임) 1이 최댓값*/
+            }
+        }
+        .box1 {
+            animation-name: sun; /*실행할 애니메이션 이름 :  keyframes 참고 */
+            animation-duration: 3s; /*애니메이션 실행시간(초) */
+            animation-timing-function: ease;    /* 애니메이션 동작시간배분 */
+            animation-iteration-count: infinite;    /* 애니메이션 동작횟수 */
+            animation-delay: 1s;    /*애니메이션이 1초 후 동작 */
+            animation-direction: alternate;     /* 애니메이션 방향 변경 */
+        }
+
+    </style>
+    <div class="box1">
+        ㅠoㅠ
+    </div>
+
+    <style>
+        @keyframes fancy {
+            0%{background-color: teal;}
+            12.5%{background-color: orange;}
+            25%{background-color: crimson;}
+            37.5%{background-color: beige;}
+            50%{background-color: purple;}
+            62.5%{background-color: navy;}
+            75%{background-color: lime;}
+            87.5%{background-color: maroon;}
+            100%{background-color: yellow;}
+        }
+        .neon {
+            /* animation 단축 속성 : 각 속성들을 몰아서 적기 */
+            animation: fancy 1s ease infinite;
+        }
+    </style>
+    <div class="neon"></div>
+</body>
+</html>

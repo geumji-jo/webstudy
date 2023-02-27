@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <style>
+        .wrap1 > img:nth-of-type(2) {
+            /* 자리도 차지하지 않고 안 보인다. */
+            display: none;
+        }
+    </style>
+    <div class="wrap1">
+        <img src="../../images/flower1.jpg" width="200">
+        <img src="../../images/flower2.jpg" width="200">
+        <img src="../../images/flower3.jpg" width="200">
+    </div>
+
+    <style>
+        .wrap2 > input[type=checkbox] {
+            display: none;
+        }
+        .wrap2 > label {
+            padding-left: 20px;
+            background-image: url('../../images/check1.png');
+            background-size: 16px 16px;
+            background-repeat: no-repeat;
+            background-position: 0 3px;  /* 이미지 살짝 아래로 내리기 */
+        }
+        .wrap2 > input[type=checkbox]:checked + label {
+            background-image: url('../../images/check2.png');
+        }
+    </style>
+    <div class="wrap2">
+        <input type="checkbox" id="all">
+        <label for="all">모두 동의합니다</label>
+        <input type="checkbox" id="service">
+        <label for="service">서비스 이용약관에 동의합니다</label>
+    </div>
+
+    <style>
+        /* 블록 -> 인라인 */
+        .wrap3 > div {
+            width: 100px;
+            height: 100px;
+            border: 1px solid gray;
+            display: inline;  /* 인라인 요소로 바꾸기 */
+        }
+    </style>
+    <div class="wrap3">
+        <div>BOX1</div>
+        <div>BOX2</div>
+    </div>
+
+    <style>
+        /* 인라인 -> 블록 */
+        .wrap4 > a {
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+            border: 1px solid gray;
+            display: block;  /* 블록 요소로 바꾸기 */
+        }
+    </style>
+    <div class="wrap4">
+        <a href="javascript:void(0)">링크1</a>
+        <a href="javascript:void(0)">링크2</a>
+    </div>
+
+    <style>
+        /* 인라인 -> 블록, 블록 요소들을 같은 줄에 배치 */
+        .wrap5 > a {
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+            border: 1px solid gray;
+            display: inline-block;  /* 인라인 블록 요소로 바꾸기 */
+        }
+    </style>
+    <div class="wrap5">
+        <a href="javascript:void(0)">링크1</a>
+        <a href="javascript:void(0)">링크2</a>
+    </div>
+
+</body>
+</html>

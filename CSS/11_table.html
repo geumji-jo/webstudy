@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <style>
+        .wrap1 > table {
+            /* 테이블의 너비/높이 지정 가능하다. */
+            width: 400px;
+            /* <table>의 border는 바깥 테두리를 의미한다. */
+            border: 1px solid gray;
+            /* <table>의 border-collapse(테두리 부시기)를 이용해서 <td>사이의 테두리를 합칠 수 있다.  */
+            border-collapse:collapse;
+            }
+        .wrap1 >table td {
+            /* <td>의 border는 각 셀(cell)의 테두리를 의미한다. */
+            border: 1px solid salmon;
+            /* <td>는 가로 정렬과 세로 정렬이 모두 지원된다. */
+            text-align: center;
+            vertical-align: middle;   /* top, middle, bottom */
+        }
+         .wrap1 > table td:nth-of-type(n) {  /* n에 0, 1, 3, ... 값이 사용된다. */
+            width:  100px;
+        }
+        .wrap1 > table > tbody > tr:hover {
+            background-color: pink;
+        }
+    </style>
+    <div class="wrap1">
+        <table>
+            <thead>
+                <tr>
+                    <td>제품번호</td>
+                    <td>제품명</td>
+                    <td>제품가격</td>
+                    <td>제품재고</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>홈런볼</td>
+                    <td>2000원</td>
+                    <td>100개</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>양파링</td>
+                    <td>3000원</td>
+                    <td>150개</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>새우깡</td>
+                    <td>4000원</td>
+                    <td>200개</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <style>
+          .wrap2 > table {
+            /* 테이블의 너비/높이 지정 가능하다. */
+            width: 800px;
+            height: 800px;
+            border-collapse:collapse;
+            margin: 0 auto;
+            
+          }
+          .wrap2 > title {
+            margin: 0 auto;
+          }
+          .wrap2 >table td {
+            /* <td>의 border는 각 셀(cell)의 테두리를 의미한다. */
+            border: 1px solid gray;
+            /* <td>는 가로 정렬과 세로 정렬이 모두 지원된다. */
+            text-align:left;
+            vertical-align: top;   /* top, middle, bottom */
+        }
+         .wrap2 > table td:nth-of-type(n) {  /* n에 0, 1, 3, ... 값이 사용된다. */
+            width:  100px;
+        }
+        .wrap2 > table > tbody > tr > td:hover {
+            background-color: pink;
+        }
+        .wrap2 > table >thead {
+            text-align: center;
+
+
+        }
+        .wrap2 td:nth-of-type(1) {
+        color: red;
+         }
+         .wrap2 td:nth-of-type(7) {
+             color: blue;
+          }
+         </style>
+    <div class="wrap2">
+        <div class="title">2023 <span></span></div>
+        <table>
+            <thead>
+                <tr>2023  JANUARY</tr>
+                <tr>
+                    <td>SUN</td>
+                    <td>MON</td>
+                    <td>TUE</td>
+                    <td>WED</td>
+                    <td>THU</td>
+                    <td>FRI</td>
+                    <td>SAT</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                    <td>7</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                    <td>7</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                    <td>7</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>9</td>
+                    <td>10</td>
+                    <td>11</td>
+                    <td>12</td>
+                    <td>13</td>
+                    <td>14</td>
+                </tr>
+                <tr>
+                    <td>15</td>
+                    <td>16</td>
+                    <td>17</td>
+                    <td>18</td>
+                    <td>19</td>
+                    <td>20</td>
+                    <td>21</td>
+                </tr>
+                <tr>
+                    <td>22</td>
+                    <td>23</td>
+                    <td>24</td>
+                    <td>25</td>
+                    <td>26</td>
+                    <td>27</td>
+                    <td>28</td>
+                </tr>
+                <tr>
+                    <td>29</td>
+                    <td>30</td>
+                    <td>31</td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+
+
+
+</body>
+</html>

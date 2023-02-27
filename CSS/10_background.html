@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <style>
+        /* 모든 박스에 적용 */
+        div {
+
+            box-sizing : border-box;
+            border: 1px solid gray;
+        }
+    </style>
+    
+    <style>
+        /* 1. 박스 = 이미지 */
+        .box1 {
+            width: 100px;
+            height: 76px;
+            background-image: url('../../images/attach1.png');
+            background-size: 100px 76px;  /* 너비 높이 순으로 크기 작성 */
+        }
+
+    </style>
+    <div class="box1"></div>
+
+    <hr>
+
+    <style>
+        /* 2. 박스 > 이미지 */
+        .box2 {
+            width: 200px;
+            height: 152px;
+            background-image: url('../../images/attach1.png');
+            background-repeat: no-repeat;   /* 디폴트는 repeat */
+            background-position: center ;
+            
+        }
+
+    </style>
+    <div class="box2"></div>
+
+    <hr>
+
+    <style>
+        /* 3. 박스 < 이미지 */
+        .box3 {
+            width: 100px;
+            height: 38px;
+            background-image: url('../../images/attach1.png');
+            background-size: cover;     /* 너비 /높이 중에서 큰 값에 맞춤 */
+            
+        }
+        .box4 {
+            width: 100px;
+            height: 38px;
+            background-image: url('../../images/attach1.png');
+            background-size: contain; /* 너비/높이 중에서 작은 값에 맞춤 */
+        }
+    </style>
+     <div class="box3"></div>
+     <div class="box4"></div>
+
+     <hr>
+     <style>
+        /* 4. 박스로 이미지의 일부만 표시하기 */
+        .box5 {
+         width: 120px;
+         height: 120px;
+         background-image: url('../../images/weather.png');
+         background-position: -290px 0; /* 가로 세로 방향으로 작성*/
+         
+     }
+     </style>
+      <div class="box5"></div>
+
+
+      <hr>
+      <style>
+        .box6 {
+        width: 1440px;
+         height: 960px;
+         background-image: url('../../images/nature5.jpg');
+         background-size: 100% 100%;
+         background-blend-mode: multiply;
+         background-color: gray;
+         border:5px solid gray;
+         margin: 0; /* 좌우 margin을 auto로 지정하면 해당 박스가 부모의 가운데에 배치된다. */
+         font-size: 80px;
+         font-weight: 700;
+         color: rgb(255, 255, 255);
+         text-align: center;    /*가로 가운데 정렬*/
+         /* padding-top: 400px;  */
+        line-height: 960px; /*박스 height와 line-height를 같은 값으로 맞추면 세로 가운데 정렬 효과가 나타난다. 세로 정렬 하는 방법 가운데 한가지~ (텍스트가 1줄일 때만 가능)*/
+
+        }
+        
+    </style>
+      <div class="box6">
+      이 눈을 언제 치우지...
+        </div>
+    <hr>
+
+    <style>
+
+        .box7 {
+            box-sizing: border-box;
+            width:960px;
+            height:636px;
+            background-image: url('../../images/architecture2.jpg');
+            background-size: 100% 100%;
+
+
+        }
+        .box8 {
+            box-sizing: border-box;
+            margin: 20px auto 0 ;
+            width: 960px;
+            height:50px;
+            border: 5px solid slateblue;
+            padding: 10px;
+            text-align: center;
+            background-color: lightblue;
+            border-radius: 10px;
+            line-height: 5px;
+            font-size: 30px;
+        }
+
+    </style>
+    
+        <div class="box7"></div>
+        <div class="box8">에펠탑</div>   
+
+</body>
+</html>
