@@ -8,7 +8,7 @@
 </head>
 <body>
     <script>
-        /*
+    /*
             1. 산술 연산자
                 1) 더하기 : +
                 2) 빼기   : -
@@ -75,7 +75,9 @@
 
          var payPerHour = 9620;
          var workTime = 10;
-         console.log(payPerHour * 8 + (payPerHour * 1.5) * 2);
+         var regularPay = payPerHour * workTime;
+         var extraPay = (workTime <= 8 ) ? 0 : payPerHour * 0.5 * (workTime - 8);
+         alert(regularPay + extraPay);
     </script>
 </body>
 </html>

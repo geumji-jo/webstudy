@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        /*
+        DOM
+        1. Document Object Model(문서 객체 모델)
+        2. HTML 문서(Document)의 구성 요소(태그)를 객체(object)로 처리할 수 있는 방식이다.
+        3. 문서 객체 알아내기
+            1) document.getElementById('아이디')            : 문서객체를 하나만 가져오기 때문에 변수로 처리
+            2) document.getElementsByClassName('클래스')    : 문서객체를 여러개 생성 할 수 있기 때문에 배열로 처리
+            3) document.getElementsByTagName('태그')        : 문서객체를 여러개 생성 할 수 있기 때문에 배열로 처리
+            4) document.quertSelector('선택자')             : 문서객체를 하나만 가져오기 때문에 변수로 처리
+            5) document.querySelectorAll('선택자')          : 문서객체를 여러개 생성 할 수 있기 때문에 배열로 처리
+        */
+    </script>
+
+    <script>
+        // DOM 처리할 구성요소(Element = 태그)가 반드시 스크립트 보다 먼저 인식되어야 한다.
+        var box1= document.getElementById('box1');
+        console.log(box1);
+    </script>
+    <div id="box1">나중에 나타난 구성요소는 인식되지 않는다.</div>
+
+
+    <div id="box2" class="box2"></div>
+    <script>
+        //1. 아이디
+        var box2 = document.getElementById('box2');
+        console.log(box2);
+
+        //2. 클래스
+        var box2 = document.getElementsByClassName('box2');
+        console.log(box2);
+
+        //3. 태그
+        var div = document.getElementsByTagName('div');
+        console.log(div);
+
+        //4. 선택자
+        var box2 = document.querySelector('#box2');
+        console.log(box2);
+        var box2 = document.querySelector('.box2');
+        console.log(box2);
+        var div = document.querySelector('div');
+        console.log(div);
+
+        //5. 선택자(querySelectorAll)
+        var box2 = document.querySelectorAll('#box2');
+        console.log(box2);
+        var box2 = document.querySelectorAll('.box2');
+        console.log(box2);
+        var div = document.querySelectorAll('div');
+        console.log(div);
+    </script>
+
+
+
+</body>
+</html>
