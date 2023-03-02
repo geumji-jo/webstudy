@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <style>
+        /*
+            반응형 웹
+            1. 웹을 이용하는 기기(장치)에 따라 페이지의 레이아웃이 곧바로 변하는 웹 기능이다.
+            2. 화면의 크기나 방향 등에 의해서 페이지의 레이아웃이 결정된다.
+            3. 반응형 웹 설정을 위해서 뷰포트(viewport) 설정이 필요하다.
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                1) width=device-width  :  화면의 너비를 장치의 너비와 맞춘다.
+                2) initial-scale=1.0   :  기본 크기는 100%이다.(1.0배)
+            4. 미디어 쿼리(mediaquery)
+                1) 화면의 크기 변화를 감지하는 CSS 모듈이다.
+                2) 선언 : @media
+                3) 화면의 종류 : screen(화면), speech(낭독기), print(출력물), all(모든 미디어)
+                4) 조건 : 화면의 크기 또는 방향에 따라서 작성
+                    (1) width: 640px            너비가 정확히 640px인 경우에 적용된다.
+                    (2) min-width: 640px        최소 640px인 경우(640px 이상인 경우에 적용된다.)
+                    (3) max-width: 640px        최대 640px인 경우(640px 이하인 경우에 적용된다.)
+                    (4) orientation: portrait   장치를 세워서 볼 때 적용된다.
+                    (5) orientation: landscape  장치를 눕혀서 볼 때 적용된다.
+        */
+    </style>
+
+    <style>
+        /* 1. 너비에 따른 배경색 변경하기 */
+        @media screen and (max-width: 640px) {  /* 너비가 640px 이하인 경우에 적용된다. */
+            body {
+                background-color: pink;
+            }
+        }
+        @media screen and (min-width: 641px) {  /* 너비가 641px 이상인 경우에 적용된다. */
+            body {
+                background-color: orange;
+            }
+        }
+
+        @media screen and (min-width: 769px) {  /* 너비가 769px 이상인 경우에 적용된다. */
+            body {
+                background-color: yellowgreen;
+            }
+        }
+    </style>
+
+</body>
+</html>

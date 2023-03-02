@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <style>
+
+        div {
+            box-sizing: border-box;
+        }
+
+        
+        /* 너비에 따른 레이아웃 변경하기 */
+        @media screen and (max-width: 800px) {  /* 너비가 800px 이하일 때 적용된다. */
+            .wrap {
+                display: flex;
+                flex-wrap: wrap;
+            }
+            .wrap > div {
+                width: 300px;
+                height: 300px;
+                border: 1px solid gray;
+            }
+        }
+        @media screen and (min-width: 801px) {  /* 너비가 801px 이상일 때 적용된다. */
+            .wrap {
+                display: flex;
+                flex-wrap: nowrap;
+            }
+            .wrap > div {
+                width: 300px;
+                height: 300px;
+                border: 1px solid gray;
+            }
+        }
+
+        /* 화면 방향에 따른 레이아웃 변경하기 */
+        /*
+        @media screen and (orientation: portrait) {  화면을 세웠을 때 적용된다.
+            .wrap {
+                display: flex;
+                flex-wrap: wrap;
+            }
+            .wrap > div {
+                width: 300px;
+                height: 300px;
+                border: 1px solid gray;
+            }
+        }
+        @media screen and (orientation: landscape) {  화면을 눕혔을 때 적용된다.
+            .wrap {
+                display: flex;
+                flex-wrap: nowrap;
+            }
+            .wrap > div {
+                width: 300px;
+                height: 300px;
+                border: 1px solid gray;
+            }
+        }
+        */
+        
+    </style>
+
+    <div class="wrap">
+        <div>BOX1</div>
+        <div>BOX2</div>
+        <div>BOX3</div>
+        <div>BOX4</div>
+    </div>
+
+</body>
+</html>

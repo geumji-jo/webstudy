@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        /*
+            transition
+            1. 특정 속성이 이행(transition)되는 과정을 볼 수 있다.
+            2. 주요 이행 속성
+                all(디폴트), width, height, margin, padding
+                background, border
+                opacity, visibility
+                transform(변형)
+        */
+    </style>
+<style>
+
+    .box1 {
+        width: 100px;
+        height: 100px;
+        border: 1px solid gray;
+        /* 박스의 크기 변화를 이행(transition) 처리하기 */
+        transition-property: all;    /*너비 높이 보더 모두 이행의 대상 */ /*모든 속성의 변화를 볼 수 있다. */
+        transition-duration: 3s; /*3초 동안 속성의 변화를 볼 수 있다. */
+        transition-timing-function: linear; /* 일정한 속도(linear)로 변하는 속성의 변화를 볼 수 있다. */
+        transition-delay: 1s; /* 1초후에 이행(transition)동작이 동작한다. */
+        
+    }
+    .box1:hover {
+        width: 200px;
+
+    }
+    .box1:active {
+        height: 200px;
+    }
+
+</style>
+<div class="box1">BOX</div>
+
+
+
+<style>
+    .box2 {
+        margin: 0 auto;
+        width: 100px;
+        height: 100px;
+        border: 1px solid gray;
+        /* 변형(transform) 속성이 3초동안 이행(transition)되는 과정을 보겠다. */
+        transition-property: transform;
+        transition-duration: 3s;
+
+    }
+    .box2:active {
+        transform: scale(2,2); /* 가로 2배, 세로 2배로 크기 변경 */
+    }
+
+</style>
+<div class="box2">BOX2</div>
+
+
+<style>
+    .box3 {
+        width: 100px;
+        height: 100px;
+        border: 1px solid gray;
+        /* 변형(transform) 속성이 1초동안 이행(transition) 되는 과정을 보겠다. */
+        transition-property: transform;
+        transition-duration: 1s;
+    }
+    .box3:active {
+        transform: translate(300px, 100px); /* 가로방향 300px, 세로 방향 100px 이동하기 */
+
+    }
+
+</style>
+<div class="box3">BOX3</div>
+
+<style>
+    .box4 {
+        margin: 0 auto;
+        width: 200px;
+        height: 50px;
+        border:1px solid gray;
+        border-radius: 25px;
+        /*변형(transform)속성이 1초동안 이행(transition)되는 과정을 보곘다. */
+        transition-property: transform;
+        transition-duration: 1s;
+    }
+    .box4:active {
+        transform: rotate(1080deg);
+
+    }
+</style>
+<div class="box4">BOX4</div>
+
+
+
+</body>
+</html>

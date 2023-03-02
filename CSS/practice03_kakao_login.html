@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+            @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+            @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css');
+
+        * {
+            margin:0;
+            padding: 0;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+  
+        .content-article {
+            width: 580px;
+            height: 100%;
+            margin: 40px auto 42px;
+            padding: 0 69px;
+            border: 1px solid rgba(0,0,0,.12);
+            font-size: 12px;
+            box-sizing: border-box;
+            text-align: center;
+            padding-bottom: 40px;
+      
+        }
+        .doc-title {
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .doc-footer {
+            text-align: center;
+            text-decoration: none; 
+            display: block;
+            position: relative;
+            padding-bottom: 50px;
+            
+            
+        }
+
+
+        .kakao_text {
+            display: block;
+            
+            position: relative;
+            z-index: -1;
+            width: 100%;
+            height: 100%;
+            visibility: hidden;
+        }
+        .kakao_im {
+            margin: 100 auto;
+            display: block;
+            text-align: center;
+            
+        }
+
+
+        .id_wrap {
+            padding-top: 40px;
+        }
+
+        .id_wrap > input {
+        
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            height: 45px;
+            padding: 10px 0 8px;
+            border: 0;
+            font-size: 18px;
+            line-height: 25px;
+            color: #191919;
+            background-color: transparent;
+            letter-spacing: 0;
+            box-sizing: border-box;
+            outline: 0 none;
+            caret-color: #191919;
+            opacity: 1;
+
+            
+            margin-bottom: 3px;
+            border: solid #ccc;
+            border-width: 0 0 2px;
+        }
+        
+        .pw_wrap > input {
+           
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            height: 45px;
+            padding: 10px 0 8px;
+            border: 0;
+            font-size: 18px;
+            line-height: 25px;
+            color: #191919;
+            background-color: transparent;
+            letter-spacing: 0;
+            box-sizing: border-box;
+            outline: 0 none;
+            caret-color: #191919;
+            opacity: 1;
+
+            margin-bottom: 3px;
+            border: solid #ccc;
+            border-width: 0 0 2px;
+       }
+
+       .pw_wrap > input:visited {
+        
+        margin-bottom: 3px;
+            border: solid black;
+            border-width: 0 0 2px;
+            display: block;
+       }
+
+
+    
+
+
+       
+       .remember_login {
+        float: left;
+        padding-top: 10px;
+       }
+       .remember_login > input[type=checkbox] {
+            display: none;
+            
+        }
+        .remember_login > label {
+            padding-left: 20px;
+            background-image: url('../../images/check1.png');
+            background-size: 16px 16px;
+            background-repeat: no-repeat;
+            background-position: 0;  /* 이미지 살짝 아래로 내리기 */
+        }
+        .remember_login > input[type=checkbox]:checked + label {
+            background-image: url('../../images/check2.png');
+            background-position: 0;
+            
+        }
+
+        .remember_login > button {
+            visibility: hidden;
+        }
+       
+
+        .screen_out {
+            visibility: hidden;
+        }
+
+        .service_info > a {
+
+            color: gray;
+            font-size: 12px;
+            padding: 0 5px;
+            color: #4c4c4c;
+            text-decoration: none; 
+        }
+
+        .btn_g.highlight {
+            background-color: #fee500;
+            border: 0;
+            cursor: pointer;
+            vertical-align: middle;
+        }
+       
+        .btn_g {
+            display: block;
+            width: 100%;
+            height: 50px;
+            border-radius: 4px;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 51px;
+            color: #191919;
+            background-color: #f0f0f0;
+            border: 0;
+            cursor: pointer;
+          
+        }
+
+        .line_or:after, .line_or:before {
+            display: inline-block;
+            width: calc(50% - 20px);
+            height: 1px;
+            margin: 8px 0;
+            background-color: rgba(0,0,0,.06);
+            vertical-align: top;
+            content: "";
+
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        .txt_or {
+           line-height: 60px;
+        }
+
+
+
+        .login_id {
+
+            padding-top: 40px;
+        }
+
+
+        .hang {
+            padding-top: 10px;
+        }
+        .sign > a {
+            
+            float: left;
+            color: gray;
+            font-size: 12px;
+            color: #4c4c4c;
+            text-decoration: none; 
+
+        }
+
+        .find  {
+            display: flex;
+            float: right;
+        }
+        .find > a {
+            
+            padding-right: 10px;
+            color: gray;
+            font-size: 12px;
+            
+            color: #4c4c4c;
+            text-decoration: none; 
+        }
+
+        .Copy {
+            color: gray;
+            font-size: 2px;
+            padding: 2px;
+            color: #4c4c4c;
+            text-decoration: none; 
+
+
+        }
+        .domain > span {
+
+            color: gray;
+            font-size: 2px;
+            padding: 2px;
+            color: #4c4c4c;
+            text-decoration: none; 
+
+        }
+     
+
+
+ 
+    </style>
+
+</head>
+<body>
+    
+
+
+
+    <div class="container-doc">
+        <div class="inner-container">
+            <main class="doc-main">
+                <div class="doc-title">
+                    <span class="kakao_text">kakao</div>
+
+                    <span class="kakao_im" >
+                        <img src="../../images/logo_kakao.png" width="100">
+                    </span>
+                </div>
+                <article class="content-article">
+                    <div class="id_wrap">
+                        <input type="email" placeholder="카카오메일아이디,이메일,전화번호">
+                    </div>
+                    <div class="pw_wrap">
+                    <input type="password" placeholder="비밀번호">
+                 </div>
+                 <div class="remember_login">
+                    <input type="checkbox" id="all">
+                    <label for="all">로그인상태유지</label> 
+                 </div>
+           
+                <div class="login_id">
+                    <button type="submit" class="btn_g highlight submit">로그인</button>
+                </div>
+                 <span class="line_or">
+                 
+                 <span class="txt_or">또는</span>
+                
+                </span>
+                    <button type="button" class="btn_g">QR코드 로그인</button>
+                   
+                <div class="hang"> 
+                <div class="sign">
+                    <a href="javascript:void(0)">회원가입</a>
+                </div>
+
+                <div class="find">
+                    <a href="javascript:void(0)">계정찾기</a>
+                    <a href="javascript:void(0)">비밀번호찾기</a>
+                </div>
+                </div>
+                </article>
+
+
+             
+                
+            </main>
+            <footer class="doc-footer">
+                <strong class="screen_out">서비스 이용정보</strong>
+                <div class="service_info">
+                    <a href="javascript:void(0)" class="link_info">이용약관</a>
+                    <a href="javascript:void(0)" class="link_info"><strong>개인정보 처리방침</strong></a>
+                    <a href="javascript:void(0)" class="link_info">운영정책</a>
+                    <a href="javascript:void(0)" class="link_info">고객센터</a>
+                    <a href="javascript:void(0)" class="link_info">공지사항</a>
+                </div>
+
+                <div class="domain">
+                    <span>Copyright</span><a href="javascript:void(0)" class="Copy">© Kakao Corp</a><span>All rights reserved.</span>
+                
+                </div>
+            </footer>
+        </div>
+
+
+    </div>
+</body>
+</html>
