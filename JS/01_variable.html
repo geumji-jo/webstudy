@@ -62,12 +62,75 @@
             3) 호이스팅 대상 : 변수 선언(var, let, const), 함수 정의(function) 등
 
 
-
-
-
-
-
     */
+
+   
 </script>
+
+<script>
+        /*
+            JavaScript 출력 방식
+            1. 경고창
+                alert(출력메시지)
+            2. 화면 출력
+                document.write(출력메시지)
+            3. 콘솔 출력 (개발자 도구 - Console 탭)
+                console.log(출력메시지)
+        */
+        // 세미콜론(;) 생략 가능
+        // alert('Hello World');
+        // document.write('<h1>Hello World</h1>');
+        // console.log('Hello World');
+</script>
+
+<script>
+
+        // 변수 선언 후 초기화가 없으면 undefined 상태
+        var a;
+        console.log(a);
+
+        // 동일한 변수명으로 재선언 가능, 값이 저장되면서 타입이 결정
+        var a;
+        a = 10;
+        console.log(a, typeof a);
+
+        // 값이 변하면 타입이 변하는 동적 타입
+        a = 'Hello World';
+        console.log(a, typeof a);
+        
+        // var 변수 선언은 생략 가능
+        b = false;
+        console.log(b, typeof b);
+
+        // 변수 선언이 항상 먼저 처리되는 호이스팅
+        c = Math.sqrt(-25);  // NaN
+        var c;
+        console.log(c, typeof c);
+
+</script>
+
+<script>
+
+        /* 자료형 변환하기 */
+
+        // 1. 문자열 -> 숫자
+        var a = '100';
+        var n1 = Number(a);
+        var n2 = parseInt(a);
+        console.log(a, n1, n2);
+
+        var b = '1.5';
+        var n3 = Number(b);
+        var n4 = parseFloat(b);
+        console.log(b, n3, n4);
+
+        // 2. 숫자 -> 문자열
+        var c = 200;
+        var str1 = String(c);
+        var str2 = c + '';
+        console.log(c, str1, str2);
+
+</script>
+
 </body>
 </html>

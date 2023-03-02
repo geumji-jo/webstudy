@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            1. 산술 연산자
+                1) 더하기 : +
+                2) 빼기   : -
+                3) 곱하기 : *
+                4) 제곱   : ** (2 ** 3 = 2의 3제곱 = 8)
+                5) 나누기 : / (5 / 2 = 2.5)
+                6) 나머지 : % (5 % 2 = 1)
+                7) 몫     : 함수(parseInt(5/2) = 2, Math.floor(5/2) = 2)
+                8) 증감   : ++,--
+            2. 복합 연산자 
+                1) += 
+                2) -=
+                3) *=, **=
+                4) /=, %=
+            3. 비교 연산자
+                1) 크다 :>
+                2) 크거나 작다 : >=
+                3) 작다 : <
+                4) 작거나 같다 : <=
+                5) 같다
+                    1) == : 값만 비교(1 == '1'이면 true)
+                    2) === :  값과 타입을 비교 (1 ==='1' 이면 false)
+                6) 같지 않다
+                    (1) !=  : 값만 비교
+                    (2) !== : 값과 타입을 비교
+            4. 논리 연산자
+                1) 논리 AND : &&
+                2) 논리 OR : ||
+                3) 논리 NOT : !
+            5. 조건 연산자(삼항연산자와 동일)
+                (조건식) ? true일 때 : false 일 때
+            6. 문자열 연산자
+                1) 문자열 연결 : +
+                2) + 이외의 산술 연산자(-,*,/)는 연산에 포함된 문자열을 숫자로 바꿔서 산술 연산으로 처리한다.
+
+
+        */
+            var a =10;
+            var b =3;
+            console.log(a ** 3);
+            console.log( a / b, a % b,parseInt(a /b), Math.floor (a /b ));
+
+
+            var c =1;
+             var d ='1';
+             console.log( c == d, c != d);
+             console.log( c === d, c !==d );
+
+             console.log(1 + '1'); // '11'
+             console.log('1' + '1'); // '11'
+             console.log(5 - '2'); // 3
+             console.log(5 * '2') // 10
+             console.log(5 / '2') // 2.5
+
+    </script>
+
+
+    <script>
+        /*
+            최저 시급이 9,620원이다.
+            8시간까지는 최저 시급을 받고, 8시간 초과 근무는 최저 시급의 1.5를 받는다.
+            10시간 근무 했을때 일당은 얼마인가?
+        */
+
+         var payPerHour = 9620;
+         var workTime = 10;
+         console.log(payPerHour * 8 + (payPerHour * 1.5) * 2);
+    </script>
+</body>
+</html>
