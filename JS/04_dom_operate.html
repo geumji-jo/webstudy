@@ -9,7 +9,7 @@
 <body>
     <div id="box1"></div>
     <script>
-        // 내부 텍스트 : texContent
+        // 내부 텍스트 : textContent
         var box1 = document.getElementById('box1');
         box1.textContent = 'Hello World';
     </script>
@@ -79,6 +79,8 @@
         console.log(box5.getAttribute('class'));
         box5.setAttribute('id', 'box5-1');
         box5.setAttribute('class', 'box5-1');
+        console.log(box5.getAttribute('id'));
+        console.log(box5.getAttribute('class'));
 
     </script>
 
@@ -90,7 +92,6 @@
             2. 마침표(.)를 이용해서 property를 사용한다.
             3. property 확인하는 방법
                 개발자 도구 - Elements 탭 - Properties 탭
-
         */
         var box6 = document.getElementById('box6');
         console.log(box6.id);
@@ -105,9 +106,32 @@
         <input id="inp" type="text" value="Hello World" readonly="readonly">
     </div>
     <script>
+        // readonly 속성 없애기
         var inp = document.getElementById('inp');
-       // inp.removeAttribute('readonly');
-       inp.readOnly = false;
+       // inp.removeAttribute('readonly');   attribute 이용
+       inp.readonly = false;                //property 이용
+
     </script>
+
+
+    <style>
+        .red_text {
+            color: red;
+
+        }
+        .blue_text {
+            color: blue;
+        }
+    </style>
+    <div id="box8" class="red_text">Hello World</div>
+    <script>
+        // 파란색으로 바꿔보기
+        //box7.setAttribute('class', 'blue_text');
+        //var box7 =document.getElementById('box7');
+        box8.style.color ='blue';
+        //box7.className = 'blue_text';
+
+    </script>
+
 </body>
 </html>
