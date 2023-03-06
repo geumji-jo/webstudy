@@ -208,6 +208,33 @@
    console.log(func7(0));
 </script>
 
+<script>
+    /*
+    6. 콜백 함수
+        1) 어떤 함수를 다른함수에 인수로 전달하는 개념이다.
+        2) 인수로 전달된 함수를 저장한 매개변수가 콜백 함수이다.
+        
+    */
+   // 선언적 함수의 콜백
+   function info(data1, data2){
+    console.log(data1, data2);
+
+   }
+   function func8(data1, data2,func) {
+    func(data1,data2);  // info('집에','가고싶다.')형식으로 호출된다.
+   }
+   func8('집에', '가고싶다.', info);
+
+
+   // 익명 함수의 콜백(주로 사용하는 방식)
+   function func9(data1,data2,func){
+    func(data1,data2);
+   }
+   func4('간절히','가고싶다.', function(data1,data2){
+    console.log(data1,data2);
+   });
+</script>
+
 
 
 

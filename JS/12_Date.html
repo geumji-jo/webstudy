@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        
+    <script>
+
+        // 현재 날짜와 시간
+        var now = new Date();
+        console.log(now);
+
+        // 특정 날짜와 시간
+        var date1 = new Date(2023, 0, 4);  // 2023-01-04 (월: 0~11)
+        console.log(date1);
+
+        var date2 = new Date(2023, 0, 4, 12, 0, 0);  // 2023-01-04 12:00:00
+        console.log(date2);
+
+        var date3 = new Date('2023-01-04 12:00:00'); // 2023-01-04 12:00:00(문자열로 전달되는 날짜의 월은 1~12로 사용)
+        console.log(date3);
+
+        // 년월일시분초 추출
+        var now = new Date();
+
+        //                             // 로컬타임기준         UTC타임기준
+        var year = now.getFullYear();  // 2023                 getUTCFullYear()
+        var month = now.getMonth();    // 2 (월: 0~11)         getUTCMonth()
+        var day = now.getDate();       // 6                    getUTCDate()
+        var weekNo = now.getDay();     // 1 (0:일, 1:월, ...)  getUTCDay()
+        var hour = now.getHours();     // 0~23                 getUTCHours()
+        var minute = now.getMinutes(); // 0~59                 getUTCMinutes()
+        var second = now.getSeconds(); // 0~59                 getUTCSeconds()
+        
+        console.log(year, month, day, weekNo, hour, minute, second);
+
+        // 기본. 오늘의 요일(월요일)을 출력해 보자.
+        var weekNames = ['일', '월', '화', '수', '목', '금', '토'];
+        console.log(weekNames[now.getDay()] + '요일');
+
+        // 심화. 요일(일,월,...)을 반환하는 getDayName() 메소드를 정의하자.
+        // Date 객체의 prototype에 getDayName 함수를 등록시킨다.
+        Date.prototype.getDayName = function(){
+            var weekNames = ['일', '월', '화', '수', '목', '금', '토'];
+            return weekNames[this.getDay()];
+        }
+
+        console.log(now.getDayName());
+        console.log(date1.getDayName());
+
+    </script>
+
+    <!-- 시계 만들기 -->
+    <style>
+        .over50second {
+            color: crimson;
+        }
+    </style>
+    <h1 id="counter">
+        <span id="year"></span>년
+        <span id="month"></span>월
+        <span id="day"></span>일
+        <span id="hour"></span>시
+        <span id="minute"></span>분
+        <span id="second"></span>초 입니다.
+    </h1>
+    <script>
+
+        function fnFillZero(n){
+            return n < 10 ? '0' + n : n;
+        }
+
+        setInterval(function(){
+            
+            var now = new Date();
+            document.getElementById('year').textContent = now.getFullYear();
+            document.getElementById('month').textContent = fnFillZero(now.getMonth());
+            document.getElementById('day').textContent = fnFillZero(now.getDate());
+            document.getElementById('hour').textContent = fnFillZero(now.getHours());
+            document.getElementById('minute').textContent = fnFillZero(now.getMinutes());
+            document.getElementById('second').textContent = fnFillZero(now.getSeconds());
+
+            if(now.getSeconds() >= 50){
+                // document.getElementById('counter').className = 'over50second';
+                document.getElementById('counter').setAttribute('class', 'over50second');
+            } else {
+                // document.getElementById('counter').className = '';
+                document.getElementById('counter').removeAttribute('class');
+            }
+
+        }, 1000);
+
+    </script>
+</body>
+</html>

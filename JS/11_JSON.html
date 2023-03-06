@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        /*
+            JSON
+            1. JavaScript Object Notation
+            2. 자바스크립트 객체 표기법
+            3. 데이터 교환을 위한 표준 형식 중 하나이다.(XML, JSON 등)
+            4. 경량 데이터(적은 양의 데이터) 교환에 유리하다.
+            5. 내장 객체 JSON을 이용해서 객체 ↔ JSON 과정을 처리할 수 있다.
+        */
+    </script>
+
+    <script>
+
+        // 객체 생성
+        var person = {
+            'name': '정숙',
+            'age': 30
+        };
+
+        // 객체 → JSON(문자열) 변환하기
+        var strJSON = JSON.stringify(person);
+        console.log(strJSON, typeof strJSON);
+
+        // JSON(문자열) → 객체 변환하기
+        var obj = JSON.parse(strJSON);
+        console.log(obj, typeof obj);
+
+    </script>
+</body>
+</html>

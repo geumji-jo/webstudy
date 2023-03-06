@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+    if( confirm('Go? Stop?')  ){
+        // 확인 버튼
+        alert('확인');
+    }else {
+        // 취소 버튼
+        alert('취소');
+    }
+    */
+    </script>
+
+    <script>
+        /*
+    var arr = ['문자열', 1, 1.5, true, function(){alert('호호호');}];
+    alert(arr.length);
+    alert(arr[0]);
+    (arr[4])();
+    */
+    </script>
+
+    <script>
+        /*
+        fnGetList();
+        function fnGetList(){   // 선언 함수
+            alert('하하하');
+
+
+        }
+        */
+    </script>
+
+    <script>
+        /*
+        var f = function() {    // 익명 함수는 호이스팅 아님
+            alert('하하하');
+        }
+
+        f();
+        */
+    </script>
+
+    <script>
+        /*
+
+        var f = () => {     
+            alert('하하하');
+
+        }
+        f();
+        */
+    </script>
+
+    <script>
+
+        /*
+        function fnGetList(data) {
+            data();
+
+        }
+
+        fnGetList(function(){alert('하히하히하');});
+        */
+    </script>
+
+
+
+    <script>
+
+        /*
+            1. setTimeout
+                1) 한 번만 동작하는 타이머 함수이다.
+                2) 동작
+                     var id = setTimeout(동작할함수, 동작할시간(밀리초));
+                3) 동작 취소 
+                    clearTimeout(id);
+
+        */
+
+        /*
+        var timerId = setTimeout(function(){
+            console.log('5초지났다.');
+        },5000);
+        clearTimeout(timerId);
+        */
+    </script>
+
+
+    <script>
+
+        /*
+        2. setInterval
+            1) 반복해서 동작하는 타이머 함수이다.
+            2) 동작
+                var id = setInterval(동작할함수,동작할시간(밀리초));
+            3) 동작 취소
+                clearInterval(id);
+        */
+
+
+        /*
+        var n = 0;
+        var timerId =setInterval(function() {
+            console.log(n++);
+        }, 1000);
+        clearInterval(timerId);
+        */
+
+    </script>
+
+    <h1 id="timer1"></h1>
+    <script>
+
+        // 5초 타이머 구현하기(5 → 4 → 3 → 2 → 1 → 땡)
+
+        /*
+        var countDown = 5;
+        var timer1 = document.getElementById('timer1');
+        var timerId =setInterval(function() {
+            if(countDown == 0) {
+                timer1.textContent = '땡';
+                clearInterval(timerId);
+            }else {
+                timer1.textContent = countDown--;
+
+            }
+        
+        },1000);
+        */
+
+    </script>
+
+
+    <script>
+        /*
+
+         재귀 호출 예시 : factorial 구하기 ( 5! = 5*4*3*2*1)
+         5! = 5 * 4!    fnFactorial(5) = 5 * fnFactorial(4)
+         4! = 4 * 3!    fnFactorial(4) = 4 * fnFactorial(3)
+         3! = 3 * 2!    fnFactorial(3) = 3 * fnFactorial(2)
+         2! = 2 * 1!    fnFactorial(2) = 2 * fnFactorial(1)
+         1! = 1         fnFactorial(1) = 1
+        ----------------------------------------------------------
+                        fnFactorial(n) = n * fnFactorial(n - 1);
+        */
+
+        function fnFactorial(n) {
+            if( n == 1) {
+                return 1;
+            } else {
+                return  n * fnFactorial(n - 1);
+            }
+        }
+
+        console.log(fnFactorial(5));
+
+        /*
+        function ex(){
+            console.log('하하하');
+            ex();   // 재귀 호출(recursive call)
+        }
+
+        ex();
+        */
+
+    </script>
+
+    <h1 id="timer2"></h1>
+    <script>
+
+        // 5초 타이머 구현하기(5 → 4 → 3 → 2 → 1 → 땡)
+        var timer2 = document.getElementById('timer2');
+        function fnTimer(countDown){
+                setTimeout(function(){
+                    if(countDown == 0) {
+                        timer2.textContent = '땡';
+
+                    }else {
+                        timer2.textContent = countDown;
+                        fnTimer(countDown -1 );
+
+
+                    }
+                }, 1000);
+
+
+        }
+        fnTimer(5);
+
+
+    </script>
+</body>
+</html>
