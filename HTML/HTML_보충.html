@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div>
+        <ul type="disc">
+            <li>
+                운동
+                <ul type="circle">
+                    <li>
+                        축구
+                        <ul type="square">
+                            <li>공격수</li>
+                            <li>수비수</li>
+                            <li>골키퍼</li>
+                        </ul>
+                    </li>
+                    <li>
+                        야구
+                        <ul type="square">
+                            <li>투수</li>
+                            <li>포수</li>
+                            <li>야수</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div>
+        <dl>
+            <dt>준비물</dt>
+            <dd>
+                <ul type="square">
+                    <li>김치</li>
+                    <li>참치</li>
+                </ul>
+            </dd>
+            <dt>조리법</dt>
+            <dd>
+                <ol type="1">
+                    <li>믈을 500cc 넣고 끓인다.</li>
+                    <li>김치를 넣는다.</li>
+                    <li>참치를 넣는다.</li>
+                </ol>
+            </dd>
+        </dl>
+    </div>
+
+
+    <div>
+        <ul type="disc">
+            <li>
+                <span>사원목록</span>
+                <div> <!--<ul>과 같은 의미-->
+                    <div><a href="05_image.html">무한스크롤</a></div> <!-- <li>,<a>과 같은 의미-->
+                    <div><a href="06_anchor.html">페이징</a></div>
+                    <div><a href="07_table.html">검색</a></div>
+
+                </div>
+            </li>
+
+            <li><a href="01_overview.html">계층게시판</a></li>
+            <li><a href="02_basic.html">블로그</a></li>
+            <li><a href="03_list.html">업로드게시판</a></li>
+            <li><a href="04_text_effect.html">실시간채팅</a></li>
+        </ul>
+    </div>
+
+    <div>
+        <dl>
+            <dt>몇 시에 주무시나요?</dt>
+            <dd>
+                <ol type="1">
+                    <li>
+                        <label for="nine">
+                            <input type="radio" id="nine" name="sleep">9시
+                        </label>
+                    </li>
+                    <li>
+                        <label for="ten">
+                            <input type="radio" id="ten" name="sleep">10시
+                        </label>
+                    </li>
+                    <li>
+                        <label for="eleven">
+                            <input type="radio" id="eleven" name="sleep">11시
+                        </label>
+                    </li>
+                    <li>
+                        <label for="twelve">
+                            <input type="radio" id="twelve" name="sleep">12시
+                        </label>
+                    </li>
+                </ol>
+            </dd>
+        </dl>
+    </div>
+
+
+    <div>
+        <dl>
+            <dt>몇시에 일어나시나요?</dt>
+            <dd>
+                <ol type="1">
+                    <li>
+                        <label for="five">
+                            <input type="radio" id="five" name="wake">5시
+                        </label>
+                    </li>
+                    <li>
+                        <label for="six">
+                            <input type="radio" id="six" name="wake">6시
+                        </label>
+                    </li>
+                    <li>
+                        <label for="seven">
+                            <input type="radio" id="seven" name="wake">7시
+                        </label>
+                    </li>
+                    <li>
+                        <label for="eight">
+                            <input type="radio" id="eight" name="wake">8시
+                        </label>
+                    </li>
+                </ol>
+            </dd>
+        </dl>
+    </div>
+
+
+    <div>
+        <div>
+            <form method="post" enctype="multipart/form-data">
+                <label for="id"> <!--웹 표준때문에 label를 줌-->
+                    아이디
+                    <input type="text" placeholder="아이디" id="id">
+                </label>
+                <input type="button" value="중복확인">
+        </div>
+        <div>
+            <label for="pw">비밀번호
+                <input type="password" placeholder="새 비밀번호" id="pw">
+            </label>
+        </div>
+        <div>
+            <label for="pw2">
+                비밀번호 확인
+                <input type="password" placeholder="비밀번호 확인" id="pw2">
+            </label>
+        </div>
+        <div>
+            <label for="email">
+                이메일
+                <input type="text" placeholder="이메일" id="email">
+            </label>
+            <span>@</span>
+            <input type="text" placeholder="직접 입력" list="site">
+            <datalist id="site">
+                <option value="gmail.com"></option>
+                <option value="naver.com"></option>
+                <option value="daum.net"></option>
+            </datalist>
+
+            <div>
+                <fieldset>
+                    <legend>성별</legend>
+                    <label for="m">
+                        <input type="radio" id="m" name="gender" checked>남자
+                    </label>
+                    <label for="f">
+                        <input type="radio" id="f" name="gender">여자
+                    </label>
+                </fieldset>
+            </div>
+            <div>
+                <fieldset>
+                    <legend>관심</legend>
+                    <div>
+                        <label for="it">
+                            <input type="checkbox" id="it">IT
+                        </label>
+                        <label for="business">
+                            <input type="checkbox" id="business">경영
+                        </label>
+                    </div>
+                    <div>
+                        <label for="bank">
+                            <input type="checkbox" id="bank">금융
+                        </label>
+                        <label for="make">
+                            <input type="checkbox" id="make">제조
+                        </label>
+                    </div>
+                    <div>
+                        <label for="service">
+                            <input type="checkbox" id="service">서비스
+                        </label>
+                        <label for="ect">
+                            <input type="checkbox" id="ect">기타
+                        </label>
+                </fieldset>
+            </div>
+            <div>
+                <label for="city">
+                    거주지
+                    <select>
+                        <option>::선택하세요::</option>
+                        <option>서울</option>
+                        <option>대전</option>
+                        <option>대구</option>
+                        <option>부산</option>
+                        <option>인천</option>
+                    </select>
+                </label>
+                <input type="text">
+            </div>
+            </fieldset>
+        </div>
+        <div>
+            <label for="introduce">자기 소개</label>
+            <textarea cols="40" rows="5" placeholder="200자 이내 간단히 작성"></textarea>
+        </div>
+        <div>
+            <label for="document">
+                이력서
+                <input type="file">
+            </label>
+        </div>
+        <div>
+            <label for="date">
+                제출일
+                <input type="date">
+            </label>
+        </div>
+
+        <div>
+            <button>제출</button>
+            <input type="reset" value="다시입력">
+        </div>
+
+
+
+    </div>
+    </form>
+    </div>
+
+
+
+    <!-- 
+        submit을 할때 서버 측에서 입력 요소를 인식하려면 name 속성이 반드시 필요하다.
+
+        name 속성이 필요한 곳
+        <input type="text">,<input type="password">,<input type="radio">
+        <input type="checkbox">, <input type="file">, <select>, <textarea>
+
+            <label>에 name쓰지말것~!!!
+
+        value 속성이 필요한 곳(사용자가 입력하지 않는 입력 요소 : 선택하거나 고르거나....)
+        <input type="radio">
+        <input type="checkbox"> 
+        <select>태그의 각 <option>
+
+     -->
+</body>
+
+</html>

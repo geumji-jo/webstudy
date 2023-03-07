@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
 
-<!-- 1. <button>을 이용한 submit -->
+    <!-- 1. <button>을 이용한 submit -->
 
     <div>
         <form id="frm_daum" action="https://search.daum.net/search" method="get">
@@ -30,39 +32,168 @@
         var q = document.getElementById('q');
 
         // 이벤트 등록 (고전 이벤트)
-        frmDaum.onsubmit = function(event) {
-            if(q.value == '') {     //입력된 내용이 없다라는 뜻
+        frmDaum.onsubmit = function (event) {
+            if (q.value == '') {     //입력된 내용이 없다라는 뜻
                 alert('검색어가 입력되지 않았습니다.');
                 q.focus();              // 검색어 입력란에 자동으로 커서를 보냄
                 // submit을 방지하는 코드
                 event.preventDefault(); // submit을 방지한다.
                 return;                 // 이벤트 종료(이벤트 리스너의 종료)
-
-
             }
 
         }
-        
+
+
+
     </script>
     <!-- 2. <input type="submit">을 이용한 submit -->
     <div>
-        <form action="https://www.google.co.kr/search" method="get">
-            <input type="text" name="q">
+        <form id="frm_gg" action="https://www.google.co.kr/search" method="get">
+            <input id="q1" type="text" name="q">
             <input type="submit" value="구글검색">
 
         </form>
     </div>
 
+
+    <script>
+
+        // 이벤트 대상
+        var frmgg = document.getElementById('frm_gg');
+
+        // 검색어 입력란
+        var q1 = document.getElementById('q1');
+        // 이벤드 등록(표준 이벤트)
+        frmgg.addEventListener('submit', function (event) {
+            if (q1.value == '') {
+                event.preventDefault();
+                return;
+            }
+
+        });
+
+
+
+    </script>
+
+    <!-- 3. <input type="button">을 이용한 submit  -->
     <div>
         <form action="https://search.naver.com/search.naver" method="get">
-            <input type="text" name="query">
-            <input type="submit" value="네이버검색">
-
+            <input id="query" type="text" name="query">
+            <input type="button" value="네이버검색" id="btn_naver">
         </form>
+    </div>
+    <script>
+        // 검색어 입력란
+        var query = document.getElementById('query');
+
+        // 검색 폼
+        var frmNaver = document.getElementById('frm_naver');
+
+        // 검색 버튼
+        var btnNaver = document.getElementById('btn_naver');
+
+        // click 이벤트 등록(고전이벤트)
+        btnNaver.onclick = function (event) {
+            if (query.value == '') {
+                event.preventDefault(); // <input type="button">버튼 클릭하면 어떤 일이 있는지?아무 일도 없다.
+                // 원래 하는 일이 없기 때문에   event.preventDefault()는 의미 없는 코드가 된다.
+
+                return;                     // 하지만, return은 이벤트 리스너를 종료시키는 역할을 수행하므로 
+                frmNaver.submit();          // return 이후에 나타난 submit 실행 코드의 실행을 막을 수 있다.
+            }
+        }
+
+    </script>
+
+
+    <!-- 4. 체크 박스 선택하기 -->
+
+    <style>
+        label {
+            display: block;   
+            /* 블락레벨 해주면 한줄에 하나씩 나타내줌 */
+            
+        }
+    </style>
+    <div>
+        <label for="chk_all">
+            <input type="checkbox" id="chk_all">
+            모두 동의합니다.
+        </label>
+        <label for="chk_service">
+            <input type="checkbox" id="chk_service" class="chk_one" >
+            이용약관에 동의합니다.
+        </label>
+        <label for="chk_privacy">
+            <input type="checkbox" id="chk_privacy" class="chk_one">
+            개인정보 동의합니다.
+        </label>
+        <label for="chk_promotion">
+            <input type="checkbox" id="chk_promotion" class="chk_one">
+            프로모션 동의합니다.
+        </label>
     </div>
 
 
+    <script>
+            //전체 동의 체크박스
+            var chkAll = document.getElementById('chk_all');
 
-    
+            // 개별 동의 체크박스들
+            var chkOneList = document.getElementsByClassName('chk_one');
+
+            // 전체 동의를 체크하면 -> 개별 동의가 모두 체크되고,
+            // 전체 동의를 해제하면 -> 개별 동의가 모두 해제된다.
+            chkAll.onclick = function(){
+                for(let i = 0; i < chkOneList.length; i++){
+                    chkOneList[i].checked = chkAll.checked;
+                  
+                }
+            }
+
+            // 개별 동의를 클릭하면 -> 모든 개별 동의의 체크 유무를 확인해서
+            // 모두 체크되었으면 전체 동의를 체크하고, 아니면 전체 동의를 해제한다.
+
+            for(let i = 0; i < chkOneList.length; i++){
+                    chkOneList[i].onclick = function(){
+                        if(chkOneList[i].checked == true ){
+                            chkAll.checked
+                        }else{
+                            chkAll.checked ==false;
+                        }
+                  
+
+                    }
+                }
+    </script>
+
+
+    <!-- 연습 -->
+    <div>
+        <form id="frm_ex">
+            <input id="email" type="text" placeholder="이메일">
+            <button>가입</button>
+        </form>
+    </div>
+    <script>
+        /* 문제.
+        입력된 이메일의 형식을 다음의 기준으로 검사하여 이메일이 아니면 submit을 방지하시오.
+        1. @가 포함되어 있어야한다.
+        2. @가 첫 번째 글자이거나 마지막 글자일 수 없다.
+        3. 마침표(.)가 포함되어 있어야 한다. 
+        */
+        var frmEx = document.getElementById('frm_ex');
+        var email = document.getElementById('email');
+        frmEx.onsubmit = function(event){
+            var str = email.value;
+            if(str.indexOf('@') == -1 || str.startsWith('@') || str.endsWith('@') || str.indexOf('.') == -1){
+                alert('이메일 형식이 올바르지 않습니다.');
+                event.preventDefault();
+                return;
+            }
+        }
+    </script>
 </body>
+
 </html>
