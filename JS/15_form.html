@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<!-- 1. <button>을 이용한 submit -->
+
+    <div>
+        <form id="frm_daum" action="https://search.daum.net/search" method="get">
+            <input id="q" type="text" name="q">
+            <button type="submit">다음검색</button>
+        </form>
+    </div>
+    <script>
+        // 이벤트 타입 : submit
+        // 이벤트 대상 : <form></form>
+        // submit 이벤트 등록하기
+        // 1. 고전 이벤트 : 문서객체.onsubmit = function(){}
+        // 2. 표준 이벤트 : 문서객체.addEventListener('submit',function(){});
+
+        // 이벤트 대상
+        var frmDaum = document.getElementById('frm_daum');
+
+        // 검색어 입력란 : <input id="q">
+        var q = document.getElementById('q');
+
+        // 이벤트 등록 (고전 이벤트)
+        frmDaum.onsubmit = function(event) {
+            if(q.value == '') {     //입력된 내용이 없다라는 뜻
+                alert('검색어가 입력되지 않았습니다.');
+                q.focus();              // 검색어 입력란에 자동으로 커서를 보냄
+                // submit을 방지하는 코드
+                event.preventDefault(); // submit을 방지한다.
+                return;                 // 이벤트 종료(이벤트 리스너의 종료)
+
+
+            }
+
+        }
+        
+    </script>
+    <!-- 2. <input type="submit">을 이용한 submit -->
+    <div>
+        <form action="https://www.google.co.kr/search" method="get">
+            <input type="text" name="q">
+            <input type="submit" value="구글검색">
+
+        </form>
+    </div>
+
+    <div>
+        <form action="https://search.naver.com/search.naver" method="get">
+            <input type="text" name="query">
+            <input type="submit" value="네이버검색">
+
+        </form>
+    </div>
+
+
+
+    
+</body>
+</html>
