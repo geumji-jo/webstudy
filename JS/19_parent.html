@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+  
+    <script>
+
+        // load 이벤트 : 문서 내의 모든 구성요소를 인식할 수 있다.
+        window.onload = ()=>{
+
+            // <input type="text" id="msg">에 입력한 메시지를 19_child.html 창으로 전송한다.
+            
+            // 문서 객체
+            var btnSend = document.getElementById('btn_send');
+            var msg = document.getElementById('msg');
+            
+            // 창 객체(19_child.html) - 모든 함수에서 사용할 수 있도록 전역 변수로 선언
+            var child = null;
+
+            // 창 여는 함수
+            function fnOpenChild(url, target){
+                // 화면 중앙에 창 열기
+                const width = 480;
+                const height = 320;
+                const left = (screen.width - width) / 2;
+                const top = (screen.height - height) / 2;
+                const feature = 'width=' + width + ',height=' + height + ',left=' + left + ',top=' + top;
+                // 창이 열려 있다면 열지 않기
+                if(child == null || child.closed){
+                    child = window.open(url, name, feature);
+                }
+            }
+
+            // 창에 데이터 보내는 함수
+            function fnSendToChild(){
+                // child의 모든 구성요소를 인식할 수 있다.
+                child.onload = ()=>{
+                    child.document.getElementById('receive_msg').textContent = msg.value;
+                }
+            }
+            
+            // click 이벤트
+            btnSend.addEventListener('click', ()=>{
+                fnOpenChild('19_child.html', '');
+                fnSendToChild();
+            });
+
+
+        }
+        
+    </script>
+
+    <div>
+        <label for="msg">보낼 메시지</label>
+        <input type="text" id="msg">
+        <input type="button" id="btn_send" value="메시지전송">
+    </div>
+
+    <div>
+        <div>받은 메시지</div>
+        <div id="receive_msg"></div>
+    </div>
+</body>
+
+</html>

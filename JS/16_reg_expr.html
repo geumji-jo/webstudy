@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+        /*
+            정규식 (regular expression)
+            1. 특정 문자열이 원하는 패턴으로 구성되어 있는지 확인하기 위한 표현식이다.
+            2. JavaScript에서 정규식 선언하기
+                var regExpr = /정규식/;
+            3. JavaScript의 정규식 처리 메소드
+                1) '문자열'.match(정규식)
+                    (1) 원하는 패턴인 경우 : not null 반환
+                    (2) 원하는 패턴이 아닌 경우 : null 반환
+                2) 정규식.test('문자열')    -   수업에서 사용할 메소드
+                    (1) 원하는 패턴인 경우 : true 반환
+                    (2) 원하는 패턴이 아닌 경우 :  false 반환
+
+        */
+    </script>
+    <script>
+        /*
+            1. 정규식에서 사용하는 메타 문자
+                1) a                :문자 a를 의미한다.
+                2) a|b              : a 또는 b를 의미한다.
+                3) ^a               : a로 시작한다.
+                4) a$               : a로 끝난다.
+                5) a*               : a를 0개 이상 포함한다.(a가 없어도 된다.)
+                6) a+               : a를 1개 이상 포함한다. (a가 있어야 한다.)
+                7) a{n}             : a를 n개 포함 한다.
+                8) a{n,}            : a를 n개 이상 포함한다.
+                9) a{n,m}           : a를 n개 이상 m개 이하로 포함한다.
+                10) .               : 모든 문자를 의미한다.
+            2. 정규식에서 사용하는 뭍자 클래스  //대괄호는 한글자라는 뜻이다
+                1) [a]              : 문자 a를 의미한다.
+                2) [.]              : 마침표 .을 의미한다. (모든 문자를 의미하지 않는다.)
+                3) [ab]             : a또는 b를 의미한다.
+                4) ^[a]             : a로 시작한다.
+                5) [a]$             : a로 끝난다.
+                6) [^a]             : a는 제외한다.
+                7) [0-9]            : 0~9까지 (숫자를 의미)
+                8) [A-Z]            : A-Z (대문자라는 뜻)
+                9) [a-z]            : a-z (소문자라는 뜻)
+                10) [가-힣]         : 가~힣 (한글이라는 뜻)
+            3. 정규식에서 사용하는 이스케이프 
+                1) \d   : 숫자이다.(digit)
+                2) \D   : 숫자가아니다.
+                3) \w   : 문자이다.(word) [0-9A-Za-z_] : 총 4개 포함
+                4) \W   : 문자가 아니다.
+                4) \.   : 마침표 .를 의미한다.
+
+        */
+    </script>
+
+    <div>
+        <h1>핸드폰 검사하기</h1>
+        <input type="text" id="phone">
+        <input type="button" value="검사" id="btn_phone">
+    </div>
+    <script>
+            // 이벤트 타입 : click
+            // 이벤트 대상 : <input type="button" value="검사" id="btn_phone">
+            // 이벤트 리스너 : fucntion() {} 또는 ()=>{}
+
+            // 핸드폰 입력란
+            var phone = document.getElementById('phone');
+
+            // 검사버튼
+            var btnPhone =document.getElementById('btn_phone');
+
+            // 이벤트 등록 ( 고전 이벤트 모델)
+            btnPhone.onclick =function(){
+
+
+                // 핸드폰 번호 : 010-숫자4개-숫자4개
+                var regPhone = /^010-[0-9]{4}-[0-9]{4}$/;                       // 010으로 시작하는데 중간에 하이픈이 들어간 경우
+                // var regPhone = /^01[0169]-[0-9]{3,4}-[0-9]{4}$/;            // 앞자리가 010,011,016,119일 경우~ 
+                // var regPhone = /^0[17]0-[0-9]{3,4}-[0-9]{4}$/;            // 앞자리가 010,070일 경우~ 
+                // var regPhone = /^010[0-9]{8}$/;                          // 앞자리가 010인데 -이 없는 경우 (총 번호자릿수가 8자리인경우)~
+
+
+                // 정규식 검사
+                if(regPhone.test(phone.value)){
+                    alert('핸드폰 번호가 맞습니다.');
+                }else{
+                    alert('핸드폰 번호가 아닙니다.');
+                }
+            }
+    </script>
+
+        <div>
+            <h1>아이디 검사하기</h1>
+            <input type="text" id="id">
+            <input type="button" value="검사" id="btn_id">
+        </div>
+        <script>
+
+            //  아이디 입력란
+            var id = document.getElementById('id');
+
+            // 검사 버튼
+            var btnId = document.getElementById('btn_id');
+
+            // 이벤트 등록 (표준 이벤트 모델)
+            btnId.addEventListener('click',() => {
+
+                // 아이디 :  전체 5~20자, 소문자와 숫자와 밑줄(_)과 하이픈(-)을 조합,첫 글자는 숫자 제외
+                var regId = /^[a-z_-][0-9a-z_-]{4,19}$/;
+
+                if(regId.test(id.value)){
+                    alert('올바른 아이디 입니다..');
+                }else{
+                    alert('잘못된 아이디입니다.');
+                }
+
+
+            })
+        </script>
+
+        <div>
+            <h1>비밀번호 검사</h1>
+        <input type="password" id="pw">
+        <span id="msg_pw"></span>
+        </div>
+        <script>
+                //비밀번호 입력란
+                var pw =document.getElementById('pw');
+
+                // 비밀번호 메시지
+                var msgPw = document.getElementById('msg_pw')
+
+                // 비밀번호 입력할때마다 곧바로 정규식 검사(키가 올라올때 동작하는 keyup 이용)
+                pw.addEventListener('keyup', () => {        //정규식 타입   
+                // pw.onkeyup()     //고전
+
+                    // 비밀번호
+                    // 1.전체 5 ~ 20자
+                    // 2.대문자, 소문자, 숫자, 특수문자(!@#$%^&*)를 조합
+                    // 3.대문자, 소문자, 숫자, 특수문자 모두 반드시 포함
+
+                    
+                    var pwLength = pw.value.length;
+                    var validCount = /[A-Z]/.test(pw.value)             // has UpperCase?
+                                    +/[a-z]/.test(pw.value)             // has LowerCase?
+                                    +/[0-9]/.test(pw.value)             // has number?
+                                    +/[^A-Za-z0-9]/.test(pw.value);     // has Special?
+                                    
+
+                    if(pwLength >= 4 && pwLength <= 20 && validCount == 4) {
+                        msgPw.textContent = '사용 가능한 비밀번호 입니다.';
+
+                    }else {
+                        msgPw.textContent = '대문자, 소문자, 숫자, 특수문자(!@#$%^&*)를 모두 조핪한 5~20자의 비밀번호를 만드세요.';
+                    }
+
+                });   
+        
+
+        </script>
+        <div>
+            <h1>이메일 검사</h1>
+            <input type="text" id="email">
+            <span id="msg_email"></span>
+            </div>
+            
+            
+            <script>
+
+            //이메일 입력란
+            var email = document.getElementById('email');
+
+            // 이메일 메시지
+            var msgEmail = document.getElementById('msg_email');
+
+            // 이메일 입력이 끝나면 정규식 검사(입력할때는 focus를 가지다가 다 끝나면 포커스를 잃기 때문에 blur를 이용한다.)
+            email.addEventListener('blur', () => {
+                    // 이메일 정규식(몇글자인지 모름,첫글자 제한하지말기)
+                    var regEmail = /^[0-9a-z_-]+@[0-9A-Za-z]{2,}(\.[A-Za-z]{2,6}){1,2}$/;
+
+                    if(regEmail.test(email.value)) {
+                        msgEmail.textContent = '이메일 형식이 올바릅니다.';
+
+                    }else {
+                        msgEmail.textContent = '이메일 형식이 잘못되었습니다.';
+                    }
+            });
+
+
+        </script>
+</body>
+</html>

@@ -157,12 +157,11 @@
 
             for(let i = 0; i < chkOneList.length; i++){
                     chkOneList[i].onclick = function(){
-                        if(chkOneList[i].checked == true ){
-                            chkAll.checked
-                        }else{
-                            chkAll.checked ==false;
-                        }
-                  
+                        let chkCount = 0;
+                       for(let j = 0; j < chkOneList.length; j++){
+                        chkCount += chkOneList[j].checked
+                       }
+                       chkAll.checked = (chkOneList.length == chkCount);
 
                     }
                 }

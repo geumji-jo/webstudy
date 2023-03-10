@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<current xmlns="current">
+  <weather year="2023" month="03" day="08" hour="17">
+    <local stn_id="90" icon="04" desc="흐림" ta="17.6">속초</local>
+    <local stn_id="93" icon="04" desc="흐림" ta="13.1" rn_hr1="0.0">북춘천</local>
+    <local stn_id="95" icon="04" desc="흐림" ta="13.5" rn_hr1="0.0">철원</local>
+    <local stn_id="98" icon="04" desc="흐림" ta="12.5" rn_hr1="3.1">동두천</local>
+    <local stn_id="99" icon="04" desc="흐림" ta="11.5" rn_hr1="6.4">파주</local>
+    <local stn_id="100" icon="04" desc="흐림" ta="11.8">대관령</local>
+    <local stn_id="101" icon="04" desc="흐림" ta="11.6" rn_hr1="0.8">춘천</local>
+    <local stn_id="102" icon="17" desc="박무" ta="7.8" rn_hr1="0.2">백령도</local>
+    <local stn_id="104" icon="04" desc="흐림" ta="17.7">북강릉</local>
+    <local stn_id="105" icon="04" desc="흐림" ta="20.3">강릉</local>
+    <local stn_id="106" icon="04" desc="흐림" ta="20.1">동해</local>
+    <local stn_id="108" icon="04" desc="흐림" ta="15.5" rn_hr1="0.0">서울</local>
+    <local stn_id="112" icon="08" desc="비" ta="14.2" rn_hr1="0.3">인천</local>
+    <local stn_id="114" icon="03" desc="구름많음" ta="17.0" rn_hr1="0.0">원주</local>
+    <local stn_id="115" icon="08" desc="비" ta="14.4" rn_hr1="0.0">울릉도</local>
+    <local stn_id="119" icon="04" desc="흐림" ta="15.8" rn_hr1="0.0">수원</local>
+    <local stn_id="121" icon="03" desc="구름많음" ta="18.2">영월</local>
+    <local stn_id="127" icon="01" desc="맑음" ta="18.2">충주</local>
+    <local stn_id="129" icon="04" desc="흐림" ta="15.4">서산</local>
+    <local stn_id="130" icon="03" desc="구름많음" ta="15.7">울진</local>
+    <local stn_id="131" icon="02" desc="구름조금" ta="20.5">청주</local>
+    <local stn_id="133" icon="01" desc="맑음" ta="20.0">대전</local>
+    <local stn_id="135" icon="01" desc="맑음" ta="20.2">추풍령</local>
+    <local stn_id="136" icon="01" desc="맑음" ta="20.9">안동</local>
+    <local stn_id="137" icon="01" desc="맑음" ta="21.3">상주</local>
+    <local stn_id="138" icon="01" desc="맑음" ta="22.3">포항</local>
+    <local stn_id="140" icon="01" desc="맑음" ta="19.6">군산</local>
+    <local stn_id="143" icon="01" desc="맑음" ta="21.6">대구</local>
+    <local stn_id="146" icon="01" desc="맑음" ta="20.3">전주</local>
+    <local stn_id="152" icon="01" desc="맑음" ta="19.0">울산</local>
+    <local stn_id="155" icon="01" desc="맑음" ta="16.8">창원</local>
+    <local stn_id="156" icon="01" desc="맑음" ta="18.8">광주</local>
+    <local stn_id="159" icon="01" desc="맑음" ta="17.3">부산</local>
+    <local stn_id="162" icon="01" desc="맑음" ta="16.8">통영</local>
+    <local stn_id="165" icon="01" desc="맑음" ta="17.0">목포</local>
+    <local stn_id="168" icon="01" desc="맑음" ta="16.7">여수</local>
+    <local stn_id="169" icon="01" desc="맑음" ta="11.6">흑산도</local>
+    <local stn_id="170" icon="02" desc="구름조금" ta="18.1">완도</local>
+    <local stn_id="172" icon="02" desc="구름조금" ta="19.1">고창</local>
+    <local stn_id="174" icon="01" desc="맑음" ta="17.9">순천</local>
+    <local stn_id="177" icon="03" desc="구름많음" ta="17.1">홍성</local>
+    <local stn_id="181" icon="03" desc="구름많음" ta="19.7">서청주(예)</local>
+    <local stn_id="184" icon="01" desc="맑음" ta="18.2">제주</local>
+    <local stn_id="185" icon="02" desc="구름조금" ta="15.5">고산</local>
+    <local stn_id="188" icon="01" desc="맑음" ta="17.7">성산</local>
+    <local stn_id="189" icon="03" desc="구름많음" ta="16.7">서귀포</local>
+    <local stn_id="192" icon="01" desc="맑음" ta="17.8">진주</local>
+    <local stn_id="201" icon="04" desc="흐림" ta="13.5" rn_hr1="0.9">강화</local>
+    <local stn_id="202" icon="04" desc="흐림" ta="16.7">양평</local>
+    <local stn_id="203" icon="03" desc="구름많음" ta="18.1" rn_hr1="0.0">이천</local>
+    <local stn_id="211" icon="04" desc="흐림" ta="14.3">인제</local>
+    <local stn_id="212" icon="04" desc="흐림" ta="13.0" rn_hr1="0.0">홍천</local>
+    <local stn_id="216" icon="03" desc="구름많음" ta="15.1">태백</local>
+    <local stn_id="217" icon="03" desc="구름많음" ta="16.6">정선군</local>
+    <local stn_id="221" icon="03" desc="구름많음" ta="17.4" rn_hr1="0.0">제천</local>
+    <local stn_id="226" icon="01" desc="맑음" ta="19.2">보은</local>
+    <local stn_id="232" icon="03" desc="구름많음" ta="19.6">천안</local>
+    <local stn_id="235" icon="02" desc="구름조금" ta="16.5">보령</local>
+    <local stn_id="236" icon="01" desc="맑음" ta="19.3">부여</local>
+    <local stn_id="238" icon="01" desc="맑음" ta="19.5">금산</local>
+    <local stn_id="239" icon="02" desc="구름조금" ta="18.9">세종</local>
+    <local stn_id="243" icon="01" desc="맑음" ta="19.6">부안</local>
+    <local stn_id="244" icon="01" desc="맑음" ta="18.2">임실</local>
+    <local stn_id="245" icon="01" desc="맑음" ta="18.6">정읍</local>
+    <local stn_id="247" icon="01" desc="맑음" ta="19.2">남원</local>
+    <local stn_id="248" icon="01" desc="맑음" ta="17.1">장수</local>
+    <local stn_id="251" icon="01" desc="맑음" ta="18.7">고창군</local>
+    <local stn_id="252" icon="01" desc="맑음" ta="18.3">영광군</local>
+    <local stn_id="253" icon="01" desc="맑음" ta="17.1">김해시</local>
+    <local stn_id="254" icon="01" desc="맑음" ta="18.4">순창군</local>
+    <local stn_id="255" icon="01" desc="맑음" ta="17.3">북창원</local>
+    <local stn_id="257" icon="01" desc="맑음" ta="17.8">양산시</local>
+    <local stn_id="258" icon="01" desc="맑음" ta="18.3">보성군</local>
+    <local stn_id="259" icon="03" desc="구름많음" ta="17.6">강진군</local>
+    <local stn_id="260" icon="03" desc="구름많음" ta="18.3">장흥</local>
+    <local stn_id="261" icon="03" desc="구름많음" ta="17.3">해남</local>
+    <local stn_id="262" icon="01" desc="맑음" ta="17.5">고흥</local>
+    <local stn_id="263" icon="01" desc="맑음" ta="19.1">의령군</local>
+    <local stn_id="264" icon="01" desc="맑음" ta="20.2">함양군</local>
+    <local stn_id="266" icon="01" desc="맑음" ta="19.0">광양시</local>
+    <local stn_id="268" icon="01" desc="맑음" ta="16.5">진도군</local>
+    <local stn_id="271" icon="03" desc="구름많음" ta="18.2">봉화</local>
+    <local stn_id="272" icon="03" desc="구름많음" ta="19.0">영주</local>
+    <local stn_id="273" icon="01" desc="맑음" ta="20.4">문경</local>
+    <local stn_id="276" icon="01" desc="맑음" ta="20.6">청송군</local>
+    <local stn_id="277" icon="01" desc="맑음" ta="21.1">영덕</local>
+    <local stn_id="278" icon="01" desc="맑음" ta="21.2">의성</local>
+    <local stn_id="279" icon="01" desc="맑음" ta="20.8">구미</local>
+    <local stn_id="281" icon="01" desc="맑음" ta="19.8">영천</local>
+    <local stn_id="283" icon="01" desc="맑음" ta="20.6">경주시</local>
+    <local stn_id="284" icon="01" desc="맑음" ta="20.0">거창</local>
+    <local stn_id="285" icon="01" desc="맑음" ta="18.9">합천</local>
+    <local stn_id="288" icon="01" desc="맑음" ta="18.3">밀양</local>
+    <local stn_id="289" icon="01" desc="맑음" ta="18.0">산청</local>
+    <local stn_id="294" icon="01" desc="맑음" ta="16.2">거제</local>
+    <local stn_id="295" icon="01" desc="맑음" ta="16.4">남해</local>
+    <local stn_id="296" icon="01" desc="맑음" ta="17.6">북부산</local>
+  </weather>
+</current>
