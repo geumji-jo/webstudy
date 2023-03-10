@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../resources/js/lib/jquery-3.6.4.min.js"></script>
+</head>
+
+<body>
+    <div id="box1">BOX1</div>
+    <script>
+
+        // 1.text() == textContent
+        console.log($('#box1').text());
+        $('#box1').text('박스1');
+    </script>
+
+
+
+    <div id="box2">
+        <p>BOX1</p>
+    </div>
+    <script>
+        // 2. html() == innerHTML
+        console.log($('#box2').html());
+        $('#box2').html('<h1>BOX2</h1>');
+    </script>
+
+    <div id="box3">BOX3</div>
+    <script>
+        // 3. css() == style
+
+        $('#box3').css('color', '#c8c8c8')
+            .css('font-size', '32px');
+
+        $('#box3').css({
+            'background-color': '#181818',
+            'text-align': 'center'
+        });
+    </script>
+</body>
+
+</html>

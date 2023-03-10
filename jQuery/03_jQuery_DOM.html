@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../resources/js/lib/jquery-3.6.4.min.js"></script>
+</head>
+
+<body>
+      
+    <script>
+
+        // 1. 태그로 인식하기
+        var div = $('div');
+        console.log(div);   // 배열로 인식한다.
+        
+        // 2. 아이디로 인식하기
+        var box = $('#box');
+        console.log(box);   // 객체로 인식한다.
+
+        // 3. 클래스로 인식하기
+        var wrap = $('.wrap');
+        console.log(wrap);  // 배열로 인식한다.
+
+    </script>
+
+    <div id="box" class="wrap"></div>
+
+    <script>
+
+        $(function(){
+
+            // 4. 자식, 후손
+            console.log($('#ott > li'));                   // 자식 중 li 태그
+            console.log($('#ott').find('li'));             // 자식 중 li 태그
+            console.log($('#ott a'))                       // 후손 중 a 태그
+            console.log($('#ott').find('a'));              // 후손 중 a 태그
+            console.log($('#ott').children());             // 모든 자식
+            console.log($('#ott').children().children());  // 모든 자식의 모든 자식 
+
+            /*
+                메소드 체이닝(method chaining)
+                $().children().children() 처럼 메소드를 연속해서 호출하는 방식
+            */
+
+            // 5. 형제
+            console.log($('#netflex ~ li'));             // 모든 형제 중 li 태그
+            console.log($('#netflex').siblings('li'));   // 모든 형제 중 li 태그
+            console.log($('#netflex').siblings());       // 모든 형제
+            console.log($('#netflex + li'));             // 인접 형제 li 태그
+            console.log($('#netflex').next());           // 인접 형제
+            console.log($('#netflex').nextAll());        // 다음 모든 형제
+            console.log($('#watchar').prev());           // 이전 형제
+            console.log($('#watchar').prevAll());        // 이전 모든 형제
+
+            // 6. 부모
+            console.log($('#netflex').parents());          // 모든 부모
+            console.log($('#netflex').parent());           // 부모
+            console.log($('#netflex').parent().parent());  // 부모의 부모
+            console.log($('#netflex').closest('div'));     // 가장 가까운 div 부모
+
+        });
+
+    </script>
+    <div>
+        <div class="inner_wrap">
+            <ul id="ott">
+                <li id="netflex"><a href="javascript:void(0)">넷플릭스</a></li>
+                <li id="disneyplus"><a href="javascript:void(0)">디즈니플러스</a></li>
+                <li id="wave"><a href="javascript:void(0)">웨이브</a></li>
+                <li id="coupangplay"><a href="javascript:void(0)">쿠팡플레이</a></li>
+                <li id="watchar"><a href="javascript:void(0)">왓챠</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+
+        $(function(){
+
+            // type으로 지정하기
+            console.log($('input[type=text]'));  // input type=text
+            console.log($(':text'));             // input type=text
+            console.log($(':password'));         // input type=password
+            console.log($(':radio'));            // input type=radio
+            console.log($('#frm :text'));        // input type=text
+            console.log($('#frm :password'));    // input type=password
+            console.log($('#frm :radio'));       // input type=radio
+
+            // 상태로 지정하기(:focus, :checked, :selected)
+            console.log($('#frm :focus'));         // 포커스를 가진 요소
+            console.log($('#frm :checked'));       // 체크된 요소(radio, checkbox, select)
+            console.log($('#frm :radio:checked')); // radio 중 체크된 요소
+            console.log($('#frm :selected'));      // 선택된 요소(select)
+
+            // 상태 확인 메소드
+            // is(':focus')    : 포커스를 가졌다면 true 반환
+            // is(':checked')  : 체크되었다면 true 반환
+            // is(':selected') : 선택되었다면 true 반환
+            $('#frm :text').focus();
+            if($('#frm :text').is(':focus')){
+                console.log('text가 포커스를 가졌다.');
+            } else {
+                console.log('text가 포커스를 가지지 않았다.');
+            }
+
+        });
+
+    </script>
+    <div class="container">
+        <form id="frm">
+            <div><input type="text"></div>
+            <div><input type="password"></div>
+            <div>
+                <input type="radio" name="gender" value="male">남
+                <input type="radio" name="gender" value="female">여
+                <input type="radio" name="gender" value="none" checked>선택안함
+            </div>
+            <div>
+                <select>
+                    <option value="">선택</option>
+                    <option value="02" selected>02</option>
+                    <option value="031">031</option>
+                    <option value="032">032</option>
+                </select>
+            </div>
+        </form>
+    </div>
+    
+</body>
+
+</html>

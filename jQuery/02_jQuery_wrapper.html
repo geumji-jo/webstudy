@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../resources/js/lib/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+    <script>
+
+        /*
+            jQuery wrapper
+            1. jQuery의 기능(메소드)을 사용할 수 있다.
+            2. JavaScript의 일반 객체도 jQuery 객체로 변환하면 jQuery의 기능(메소드)을 사용할 수 있다.
+            3. jQuery 객체로 변환할 때 jQuery wrapper가 사용된다.
+            4. jQuery wrapper
+                1) jQuery(일반객체)
+                2) $(일반객체) - 실제로 사용하는 jQuerywrapper이다
+
+        */
+
+    </script>
+
+    <script>
+
+        /*
+            jQuery의 load 이벤트 (html모두읽고나서 실행하는 이벤트)
+            1. load 이벤트는 문서의 모든 요소를 인식할 수 있는 이벤트이다.
+            2. load 이벤트 등록하는 방법
+                로드이벤트 처리하기 위해서 ready 메소드를 사용한다
+                1) $(document).ready(() => {
+                  
+                });
+                2) $(function(){
+
+                });
+        */
+
+    </script>
+
+    <script>
+        // load 이벤트
+        $(function(){
+            var box = document.getElementById('box');
+            console.log(box);
+
+            // jQuery wrapper를 이용해서 문서 객체를 jQuery 객체로 변환하기
+            var jBox = $(box);
+            console.log(jBox);
+
+        });
+    </script>
+    <div id="box">Hello World</div>
+    
+</body>
+</html>
