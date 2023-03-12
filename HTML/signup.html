@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <form action="">
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            <label for="id">
+                                아이디
+                            </label>
+                        </td>
+                        <td>
+                            <input type="text" id="id" placeholder="이메일 또는 전화번호">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="pw">
+                                비밀번호
+                            </label>
+                        </td>
+                        <td>
+                            <input type="password" id="pw" placeholder="대소문자구분">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="name">
+                                이름
+                            </label>
+                        </td>
+                        <td>
+                            <input type="text" id="name" placeholder="이름">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="phone">
+                                연락처
+                            </label>
+                        </td>
+                        <td>
+                            <input type="text" id="phone" placeholder="하이픈 없이 입력">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="email">
+                                이메일
+                            </label>
+                        </td>
+                        <td>
+                            <input type="email" id="email" placeholder="이메일">
+                            @
+                            <input type="text" list="domain" placeholder="선택 또는 직접입력">
+                            <datalist id="domain">
+                                <option value="naver.com"></option>
+                                <option value="kakao.com"></option>
+                                <option value="gmail.com"></option>
+                            </datalist>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>성별</td>
+                        <td>
+                            <label for="male">
+                                <input type="radio" name="gender" id="male" value="1">남
+                            </label>
+                            <label for="female">
+                                <input type="radio" name="gender" id="female" value="2">여
+                            </label>
+                            <label for="none">
+                                <input type="radio" name="gender" id="none" value="3" checked>선택안함
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>관심사</td>
+                        <td>
+                            <input type="checkbox" name="interest" id="dev"><label for="dev">개발</label>
+                        </td>
+                        <dt>
+                            <input type="checkbox" name="plan" id="plan"><label for="plan">기획</label>
+                        </dt>
+                        <dt>
+                            <input type="checkbox" name="anal" id="anal"><label for="anal">분석</label>
+                        </dt>
+                    </tr>
+
+                    <tr>
+                        <td><label for="gubun">분야</label></td>
+                        <td>
+                            <select>
+                                <option>선택</option>
+                                <option>데이터베이스</option>
+                                <option>웹개발</option>
+                                <option>빅데이터</option>
+                                <option>인공지능</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <span>약관에 동의합니까?</span>
+                            <input type="radio" name="agree" id="yes" value="yes"><label for="yes">예</label>
+                            <input type="radio" name="agree" id="no" value="no"><label for="no">아니요</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+
+</body>
+
+</html>
