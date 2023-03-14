@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../resources/js/lib/jquery-3.6.4.min.js"></script>
+</head>
+
+<body>
+
+    <div id="box1">
+    </div>
+    <script>
+        // 초기 이미지와 버튼
+        $('#box1').html($('<img>').attr('id', 'light').attr('src', '../../images/light1.png').attr('width', '100px'));
+        $('#box1').append($('<button>').data('state', '0').attr('id', 'btn1').text('OFF'));    //버튼이 이미지보다 앞선 곳에 나타나게 된다.
+
+        // click 이벤트
+        $('#btn1').click(function (event) {     //모든 이벤트는 메소드로 만들어져있다.
+            /*
+                이벤트 대상(target)을 자바스크립트로 호출하는 방법
+                1. event.target
+                2. this
+            */
+
+
+            // btn1의 data-state=0이면 OFF,data-state="1"이면 ON으로 처리한다.
+            if ($(this).data('state') == 0) {
+                $('#light').attr('src', '../../images/light2.png');
+                $(this).text('ON').data('state', '1');
+            } else {
+                $('#light').attr('src', '../../images/light1.png');
+                $(this).text('OFF').data('state', '0');
+
+            }
+
+        }); 
+    </script>
+
+    <hr>
+
+    <div id="box2">
+        <div>
+            <button id="btn_prev">이전</button>
+            <span id="image_no"></span>
+            <button id="btn_next">다음</button>
+        </div>
+        <div id="image_box">
+
+        </div>
+    </div>
+    <style>
+        #image_box {
+            width: 480px;
+            height: 320px;
+            background-size: 100% 100%; /* 100%는 기존에 줬던 사이즈랑 동일한 크기라는 뜻 */
+            background-repeat: no-repeat; /*반복하지 않는다.*/
+            
+        }
+    </style>
+    <script>
+
+        // 전역 배열 및 인덱스(모든 함수에서 사용 가능)
+        var imageList = ['animal1.jpg', 'architecture1.jpg', 'flower1.jpg', 'fruit1.jpg', 'nature1.jpg'];
+        var i = 0;
+        
+        // 이미지와 번호 표시하는 함수
+        function fnImageDisplay(){             //이름있는 함수
+            $('#image_box').css('background-image','url(../../images/' + imageList[i]+ ')');
+            $('#image_no').text((i + 1)+'/'+imageList.length);
+        }
+        // 이미지 변경 함수
+        function fnImageSlide(n){
+            i += n;
+            // i %= imageList.length;      //i의 값이 5가 넘어가지 못하게 막아줌/나머지 값을 이용
+            if (i == imageList.length) {
+                i =0;                           // 시작 인덱스로 고정
+            }else if(i== -1){
+                i = imageList.length -1;        //마지막 인덱스로 고정
+            }
+
+            fnImageDisplay();
+        }
+
+        // 이전 버튼 click 이벤트
+        $('#btn_prev').click(function(event){
+        fnImageSlide(-1);
+        });
+        // 다음 버튼 click이벤트
+        $('#btn_next').click(function(event){
+        fnImageSlide(1);
+        });
+
+        // 함수 호출
+        fnImageDisplay();      // 불러줘야 실행된다.
+
+
+
+    </script>
+
+</body>
+
+</html>

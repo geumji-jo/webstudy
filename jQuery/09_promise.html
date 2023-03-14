@@ -169,7 +169,30 @@
 
 
     </script>
+    <script>
+        // 소개. Promise 대신 콜백으로 처리하기
+        function fnFunc(callback){
+            $.ajax({
+            // 요청
+             type: 'GET',
+             url: 'product.txt',
+             async: true,
+            // 응답
+             dataType: 'text',
+             success: function(data){
+             callback(data);        //응답 결과를 다른 함수로 넘겨서 처리
+             },
+             error: function(jqXHR){
+             
+            }
+            });
+        }
 
+        fnFunc(function(data){      // 매개변수 callback 으로 전달되는 익명 함수
+        alert(data);
+        })
+
+    </script>
 </body>
 
 </html>
