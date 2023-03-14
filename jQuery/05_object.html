@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../resources/js/lib/jquery-3.6.4.min.js"></script>
+  </head>
+
+  <body>
+    <script>
+      $(function () {
+        // 객체 생성
+        var obj = {
+          title: "홍길동전",
+          author: "허균",
+          price: 10000,
+        };
+        // 프로퍼티 추가하기
+        $.extend(obj, { publisher: "좋은출판사", pubDate: "2023-03-13" });
+        // 객체의 프로퍼티 순회-1(for-in문)
+        var dl = $("<dl>");
+        for (let p in obj) {
+          dl.append("<dt>" + p + "</dt>");
+          dl.append("<dd>" + obj[p] + "</dd>");
+        }
+        $("#box").append(dl);
+        // 객체의 프로퍼티 순회-2(each 메소드)
+        // $.each(객체, function(프로퍼티, 값){});
+        // $.each(객체, (프로퍼티, 값)=>{});
+        var dl = $("<dl>");
+        $.each(obj, (p, value) => {
+          dl.append("<dt>" + p + "</dt>");
+          dl.append("<dd>" + value + "</dd>");
+        });
+        $("#box").append(dl);
+      });
+    </script>
+    <div id="box"></div>
+  </body>
+</html>

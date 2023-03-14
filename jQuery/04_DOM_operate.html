@@ -174,9 +174,39 @@
         $('#frm textarea').text('Hello jQuary');
     </script>
 
-    <div id="box4">
+    <style>
+        .big-text {
+            font-size: 2em;
+        }
+
+        .red-text {
+            color: red;
+        }
+    </style>
+    <div id="box4" class="invisible">
         Hello World
     </div>
+    <script>
+
+        // class 속성 추가
+        $('#box4').addClass('big-text').addClass('red-text');   //메소드 체이닝
+        $('#box4').addClass('big-text red-text');               //공백으로 class 구분
+
+        // class 속성 제거
+        $('#box4').removeClass('red-text');                     //addclass와 사용법이 같다
+        $('#box4').removeClass('big-text red-text');
+
+
+        // class 속성 토글(추가와 제거가 번갈아가면서 적용)
+        $('#box4').toggleClass('big-text').toggleClass('big-text');
+        $('#box4').toggleClass('red-text').toggleClass('red-text');
+
+        // class 속성 확인
+        if ($('#box4').hasClass('invisible')) {
+            $('#box4').css('opacity', '0');  // 투명도를 0으로 설정하면 안 보인다.
+        }
+
+    </script>
 
 </body>
 

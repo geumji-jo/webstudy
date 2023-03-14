@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../resources/js/lib/jquery-3.6.4.min.js"></script>
+</head>
+
+<body>
+
+    <script>
+        // 비동기 처리의 문제점 확인하기
+        // 요청을 한 다음 응답이 올때까지 기다리지 않는다.
+
+
+
+        var a;  //undefined
+        $.ajax({
+            // 요청
+            type: 'GET',
+            url: 'product.txt',
+            async: true,
+            // 응답
+            dataType: 'text',
+            success: function (data) {
+                a = data; // a='Hello World'를 기대하지만, 응답이 올 때까지 기다리지 않고 다음 코드가 진행된다.
+            }
+        });
+        console.log(a);
+
+    </script>
+
+    <script>
+        /*
+        Promise
+        1. 비동기 처리를 할 때 응답이 올 때까지 기다리는 JavaScript 객체이다.
+        2. then() 메소드는 성공할 때 실행하고, catch() 메소드는 실패할 때 실행한다.
+        */
+    </script>
+    <script>
+        // Promise 객체 생성하기
+        var promise = new Promise(function(resolve, reject){        //resolve : then()메소드가 전달하는 함수가 저장, 
+            // resolve();                                               //reject : catch() 메소드가 전달하는 함수가 저장
+            reject();
+        
+        });
+
+        // Promise 객체 then()메소드 호출
+        promise.then(function(){
+     
+        console.log('resolve() 호출');
+        });
+
+        // Promise 객체의 catch() 메소드 호출하기
+        promise.catch(function(){
+       
+        console.log('reject() 호출');
+        });
+    
+
+    </script>
+
+
+    <script>
+        //$.ajax과 Promise 함꼐 사용하기
+
+        //Promise 객체 생성과 then()/catch() 메소드 호출
+        new Promise(function(resolve,reject){
+
+            $.ajax({
+            // 요청
+             type: 'GET',
+             url: 'product.txt',
+             async: true,
+            // 응답
+             dataType: 'text',
+             success: function(data){
+             resolve(data);         // then() 메소드에서 정의한 함수에 연결, ajax응답이 온 뒤 resolve()가 호출된다.
+             },     
+             error: function(jqXHR){
+                reject(jqXHR);  // catch()메소드에서 정의한 함수에 연결
+            }
+            });
+        
+        }).then(function(param){        // resolve(data);   호출로 인해서 매개변수 param에 data가 전달된다.
+            alert(param);
+        
+        }).catch(function(param){       // reject(jqXHR);   호출로 인해서 매개변수 param에 jqXHR이 전달된다.
+            alert(param.status + '(' +param.statusText + ')');
+
+        
+        });
+    </script>
+
+</body>
+
+</html>

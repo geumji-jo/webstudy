@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset='UTF-8' />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <script src="../resources/js/lib/jquery-3.6.4.min.js"></script>
+</head>
+
+<body>
+   
+  <div id="box1">
+    <button id="btn1">텍스트 응답 처리</button>
+</div>
+<script>
+    $('#btn1').on('click', function(){
+        $.ajax({
+            // 요청
+            type: 'GET',         // HTTP Method(GET, POST)
+            url: 'product.txt',  // URL (서버 경로)
+            async: true,         // 비동기(true, 생략 가능), 동기(false)
+            // 응답
+            dataType: 'text',         // 응답 데이터의 타입(text, xml, json 등)
+            success: function(data){  // 매개변수 data로 응답 데이터가 자동 전달된다.(responseText, responseXML 등)
+                // $('#btn1').after($('<div>').text(data));
+                $('#box1').append($('<div>').text(data));
+            },
+            error: function(jqXHR){   // 매개변수 jqXHR로 에러 정보가 자동 전달된다.
+                $('#box1').append($('<div>').text(jqXHR.status));       // 응답코드 (404)
+                $('#box1').append($('<div>').text(jqXHR.statusText));   // 응답코드텍스트 (Not Found)
+                $('#box1').append($('<div>').text(jqXHR.responseText)); // 응답텍스트 (서버가 전송한 예외 화면)
+            }
+        });
+    });
+</script>
+
+<div id="box2">
+    <button id="btn2">XML 요청1</button>
+</div>
+<script>
+    $('#btn2').on('click', function(){
+        $.ajax({
+            type: 'GET',
+            url: 'product1.xml',
+            async: true,
+            dataType: 'xml',
+            success: function(data){  // var data = xhr.responseXML;
+                var productList = $(data).find('product');
+                $.each(productList, (i, product)=>{
+                    var ul = $('<ul>');
+                    ul.append( $('<li>').text($(product).find('model').text()) );
+                    ul.append( $('<li>').text($(product).find('maker').text()) );
+                    ul.append( $('<li>').text($(product).find('price').text()) );
+                    $('#box2').append(ul);
+                });
+            },
+            error: function(jqXHR){
+                $('#box2').append($('<div>').text(jqXHR.status));
+                $('#box2').append($('<div>').text(jqXHR.statusText));
+                $('#box2').append($('<div>').text(jqXHR.responseText));
+            }
+        })
+    });
+</script>
+
+<div id="box3">
+    <button id="btn3">XML 요청2</button>
+</div>
+<script>
+    $('#btn3').on('click', function(){
+        $.ajax({
+            type: 'GET',
+            url: 'product2.xml',
+            async: true,
+            dataType: 'xml',
+            success: function(data){
+                $.each($(data).find('product'), (i, product)=>{
+                    var ul = $('<ul>');
+                    ul.append( $('<li>').text($(product).attr('model')));
+                    ul.append( $('<li>').text($(product).attr('maker')));
+                    ul.append( $('<li>').text($(product).attr('price')));
+                    $('#box3').append(ul);
+                });
+            },
+            error: function(jqXHR){
+                $('#box3').append($('<div>').text(jqXHR.status));
+                $('#box3').append($('<div>').text(jqXHR.statusText));
+                $('#box3').append($('<div>').text(jqXHR.responseText));
+            }
+        })
+    });
+</script>
+
+<div id="box4">
+    <button id="btn4">JSON 요청</button>
+</div>
+<script>
+    $('#btn4').on('click', function(){
+        $.ajax({
+            type: 'GET',
+            url: 'product.json',
+            async: true,
+            dataType: 'json',
+            success: function(data){  // var data = JSON.parse(xhr.responseText);
+                $.each(data, (i, product)=>{
+                    var ul = $('<ul>');
+                    ul.append($('<li>').text(product.model));
+                    ul.append($('<li>').text(product.maker));
+                    ul.append($('<li>').text(product.price));
+                    $('#box4').append(ul);
+                });
+            },
+            error: function(jqXHR){
+                $('#box4').append($('<div>').text(jqXHR.status));
+                $('#box4').append($('<div>').text(jqXHR.statusText));
+                $('#box4').append($('<div>').text(jqXHR.responseText));
+            }
+        });
+    });
+</script>
+
+<div>
+  <button id="btn5">book.xml 조회하기</button>
+</div>
+<div id="box5">
+  <table border="1">
+      <thead>
+          <tr>
+              <td>제목(title)</td>
+              <td>썸네일(image+link)</td>
+              <td>저자(author)</td>
+              <td>할인가(discount)</td>
+              <td>출판사(publisher)</td>
+              <td>출판일(pubdate)</td>
+              <td>ISBN(isbn)</td>
+              <td>개요(description)</td>
+          </tr>
+      </thead>
+      <tbody id="book_list_xml"></tbody>
+  </table>
+</div>
+<script>
+  $('#btn5').on('click', function(){
+      $.ajax({
+          type: 'GET',
+          url: 'book.xml',
+          async: true,
+          dataType: 'xml',
+          success: function(data){
+              $('#book_list_xml').empty();
+              $.each($(data).find('item'), (i, item)=>{
+                  var tr = $('<tr>');
+                  tr.append($('<td>').html($(item).find('title').text()));
+                  tr.append($('<td>').html($('<a>').attr('target', '_blank').attr('href', $(item).find('link').text()).append($('<img>').attr('src', $(item).find('image').text()).attr('width', '80px').attr('height', '120px'))));
+                  tr.append($('<td>').html($(item).find('author').text()));
+                  tr.append($('<td>').html($('<span>').text($(item).find('discount').text() + '원').css('color', '#ff0000')));
+                  tr.append($('<td>').html($(item).find('publisher').text()));
+                  var pubdate = $(item).find('pubdate').text();
+                  tr.append($('<td>').html(pubdate.substring(0,4) + '-' + pubdate.substring(4,6) + '-' + pubdate.substring(6)));
+                  tr.append($('<td>').html($(item).find('isbn').text()));
+                  tr.append($('<td>').html($(item).find('description').text()));
+                  $('#book_list_xml').append(tr);
+              });
+          }
+      });
+  });
+</script>
+
+<div>
+  <button id="btn6">book.json 조회하기</button>
+</div>
+<div id="box6">
+  <table border="1">
+      <thead>
+          <tr>
+              <td>제목(title)</td>
+              <td>썸네일(image+link)</td>
+              <td>저자(author)</td>
+              <td>할인가(discount)</td>
+              <td>출판사(publisher)</td>
+              <td>출판일(pubdate)</td>
+              <td>ISBN(isbn)</td>
+              <td>개요(description)</td>
+          </tr>
+      </thead>
+      <tbody id="book_list_json"></tbody>
+  </table>
+</div>
+<script>
+  $('#btn6').on('click', function(){
+      $.ajax({
+          type: 'GET',
+          url: 'book.json',
+          async: true,
+          dataType: 'json',
+          success: function(data){
+              $('#book_list_json').empty();
+              $.each(data.items, (i, item)=>{
+                  var tr = $('<tr>');
+                  tr.append($('<td>').html(item.title));
+                  tr.append($('<td>').html($('<a>').attr('target', '_blank').attr('href', item.link).append($('<img>').attr('src', item.image).attr('width', '80px').attr('height', '120px'))));
+                  tr.append($('<td>').html(item.author));
+                  tr.append($('<td>').html($('<span>').text(item.discount + '원').css('color', '#ff0000')));
+                  tr.append($('<td>').html(item.publisher));
+                  tr.append($('<td>').html(item.pubdate.substring(0,4) + '-' + item.pubdate.substring(4,6) + '-' + item.pubdate.substring(6)));
+                  tr.append($('<td>').html(item.isbn));
+                  tr.append($('<td>').html(item.description));
+                  $('#book_list_json').append(tr);
+              });
+          }
+      });
+  });
+</script>
+
+</body>
+
+</html>

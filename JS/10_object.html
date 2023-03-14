@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <script>
-
-        /*
+      /*
             객체 (object)
             1. 여러 값으로 구성된 하나의 데이터를 의미한다.
             2. 중괄호 {}를 이용해서 나타낸다.
@@ -21,155 +20,154 @@
                 }
         */
 
-        /*
+      /*
             객체의 속성(property) 확인하기
             1. 마침표 : 객체.속성
             2. 대괄호 : 객체['속성']
         */
 
-        // 객체 생성하기
-        var obj = {
-            'age': 30,
-            'name': '정숙',
-            'isAlive': true,
-            'friend': {
-                'name': '미희',
-                'phone': '010-1111-1111'
-            },
-            'hobbies': [
-                '여행',
-                '골프',
-                '음주'
-            ],
-            'info': function(){
-                // 객체의 속성을 호출할 때는 항상 객체.속성 또는 객체['속성']의 형식을 갖춰야 한다.
-                // this : 현재 객체를 의미한다. 즉 obj를 의미한다.
-                console.log('이름이 뭐에요? ' + obj.name + ', 나이가 뭐에요? ' + obj.age);
-                console.log('이름이 뭐에요? ' + this.name + ', 나이가 뭐에요? ' + this.age);
-            }
-        };
-        
-        // 객체의 속성(property) 확인하기
-        console.log(obj.age, obj['age']);
-        console.log(obj.name, obj['name']);
-        console.log(obj.isAlive, obj['isAlive']);
-        console.log(obj.friend.name, obj.friend['name']);
-        console.log(obj['friend'].name, obj['friend']['name']);
-        console.log(obj.friend.phone, obj.friend['phone']);
-        console.log(obj['friend'].phone, obj['friend']['phone']);
-        for(let i = 0; i < obj.hobbies.length; i++){
-            console.log(obj.hobbies[i]);
-        }
-        for(let i = 0; i < obj['hobbies'].length; i++){
-            console.log(obj['hobbies'][i]);
-        }
-        (obj.info)();
-        (obj['info'])();
+      // 객체 생성하기
+      var obj = {
+        age: 30,
+        name: "정숙",
+        isAlive: true,
+        friend: {
+          name: "미희",
+          phone: "010-1111-1111",
+        },
+        hobbies: ["여행", "골프", "음주"],
+        info: function () {
+          // 객체의 속성을 호출할 때는 항상 객체.속성 또는 객체['속성']의 형식을 갖춰야 한다.
+          // this : 현재 객체를 의미한다. 즉 obj를 의미한다.
+          console.log(
+            "이름이 뭐에요? " + obj.name + ", 나이가 뭐에요? " + obj.age
+          );
+          console.log(
+            "이름이 뭐에요? " + this.name + ", 나이가 뭐에요? " + this.age
+          );
+        },
+      };
 
+      // 객체의 속성(property) 확인하기
+      console.log(obj.age, obj["age"]);
+      console.log(obj.name, obj["name"]);
+      console.log(obj.isAlive, obj["isAlive"]);
+      console.log(obj.friend.name, obj.friend["name"]);
+      console.log(obj["friend"].name, obj["friend"]["name"]);
+      console.log(obj.friend.phone, obj.friend["phone"]);
+      console.log(obj["friend"].phone, obj["friend"]["phone"]);
+      for (let i = 0; i < obj.hobbies.length; i++) {
+        console.log(obj.hobbies[i]);
+      }
+      for (let i = 0; i < obj["hobbies"].length; i++) {
+        console.log(obj["hobbies"][i]);
+      }
+      obj.info();
+      obj["info"]();
     </script>
 
     <script>
+      // 객체의 속성(property)은 동적으로 추가가 가능하다.
 
-        // 객체의 속성(property)은 동적으로 추가가 가능하다.
+      // 빈 객체 생성
+      var computer = {};
 
-        // 빈 객체 생성
-        var computer = {};
+      // 속성 추가(기존에 없던 속성을 사용하면 자동으로 추가된다.)
+      computer.model = "gram";
+      computer.price = 150;
+      console.log(computer);
 
-        // 속성 추가(기존에 없던 속성을 사용하면 자동으로 추가된다.)
-        computer.model = 'gram';
-        computer.price = 150;
-        console.log(computer);
-
-        // 속성 삭제(delete 키워드를 사용한다.)
-        delete computer.price;
-        console.log(computer);
-
+      // 속성 삭제(delete 키워드를 사용한다.)
+      delete computer.price;
+      console.log(computer);
     </script>
 
     <script>
+      // 객체의 속성(property)을 for - in문으로 순회할 수 있다.
 
-        // 객체의 속성(property)을 for - in문으로 순회할 수 있다.
+      // 객체 생성
+      var book = {
+        title: "어린왕자",
+        author: "생텍쥐베리",
+        price: 10000,
+      };
 
-        // 객체 생성
-        var book = {
-            'title': '어린왕자',
-            'author': '생텍쥐베리',
-            'price': 10000
-        };
-
-        // 객체 속성의 순회
-        for(let p in book){  // 지역변수 p로 'title', 'author', 'price' 속성이 문자열로 하나씩 전달된다.
-            // console.log(p, typeof p);
-            console.log(p + ': ' + book.p);   // for-in문에서는 마침표를 이용한 속성 참조가 불가능하다.(book.'title', book.'author', book.'price')
-            console.log(p + ': ' + book[p]);  // for-in문에서는 대괄호를 이용한 속성 참조만 가능하다.(book['title'], book['author'], book['price'])
-        }
-
+      // 객체 속성의 순회
+      for (let p in book) {
+        // 지역변수 p로 'title', 'author', 'price' 속성이 문자열로 하나씩 전달된다.
+        // console.log(p, typeof p);
+        console.log(p + ": " + book.p); // for-in문에서는 마침표를 이용한 속성 참조가 불가능하다.(book.'title', book.'author', book.'price')
+        console.log(p + ": " + book[p]); // for-in문에서는 대괄호를 이용한 속성 참조만 가능하다.(book['title'], book['author'], book['price'])
+      }
     </script>
 
     <div id="box1"></div>
     <script>
-        /*
+      /*
             목록 만들기
             1. code = A100
             2. name = 홈런볼
             3. price = 2000
         */
-        var snack = {
-            'code': 'A100',
-            'name': '홈런볼',
-            'price': 2000
-        };
-        var str = '<ol>';
-        for(let p in snack){
-            str += '<li>' + p + ' = ' + snack[p] + '</li>';
-        }
-        str += '</ol>';
-        document.getElementById('box1').innerHTML = str;
+      var snack = {
+        code: "A100",
+        name: "홈런볼",
+        price: 2000,
+      };
+      var str = "<ol>";
+      for (let p in snack) {
+        str += "<li>" + p + " = " + snack[p] + "</li>";
+      }
+      str += "</ol>";
+      document.getElementById("box1").innerHTML = str;
     </script>
 
     <div id="box2"></div>
     <script>
-        /*
+      /*
             테이블 만들기
             성명    연락처          이메일
             정숙    010-1111-1111   jungsook@naver.com
             미희    010-2222-2222   mihee@gmail.com
             정희    010-3333-3333   junghee@kakao.com
         */
-        var contacts = [
-            {
-                'name': '정숙',
-                'phone': '010-1111-1111',
-                'email': 'jungsook@naver.com'
-            },
-            {
-                'name': '미희',
-                'phone': '010-2222-2222',
-                'email': 'mihee@gmail.com'
-            },
-            {
-                'name': '정희',
-                'phone': '010-3333-3333',
-                'email': 'junghee@kakao.com'
-            }
-        ];
-        var str = '<table border="1">';
-        str += '<thead><tr><td>성명</td><td>연락처</td><td>이메일</td></tr></thead>';
-        str += '<tbody>';
-        for(let i = 0; i < contacts.length; i++){  // 배열 요소 순회
-            str += '<tr>';
-            for(let p in contacts[i]){             // 객체 속성 순회
-                str += '<td>' + contacts[i][p] + '</td>';
-            }
-            str += '</tr>';
+      var contacts = [
+        {
+          name: "정숙",
+          phone: "010-1111-1111",
+          email: "jungsook@naver.com",
+        },
+        {
+          name: "미희",
+          phone: "010-2222-2222",
+          email: "mihee@gmail.com",
+        },
+        {
+          name: "정희",
+          phone: "010-3333-3333",
+          email: "junghee@kakao.com",
+        },
+      ];
+      var str = '<table border="1">';
+      str +=
+        "<thead><tr><td>성명</td><td>연락처</td><td>이메일</td></tr></thead>";
+      str += "<tbody>";
+      for (let i = 0; i < contacts.length; i++) {
+        // 배열 요소 순회
+        str += "<tr>";
+        for (let p in contacts[i]) {
+          // 객체 속성 순회
+          str += "<td>" + contacts[i][p] + "</td>";
         }
-        str += '</tbody>';
-        str += '</table>';
-        document.getElementById('box2').innerHTML = str;
+        str += "</tr>";
+      }
+      str += "</tbody>";
+      str += "</table>";
+      document.getElementById("box2").innerHTML = str;
     </script>
 
     <script>
-        /*
+      /*
             생성자 함수
             1. 객체를 만드는 함수이다.
             2. 관례상 첫 글자를 대문자로 작성한다.
@@ -183,25 +181,23 @@
                 var 객체 = new 함수명(인수, 인수, ...);
         */
 
-        // 생성자 함수 정의
-        function Product(code, name, price){
-            this.code = code;
-            this.name = name;
-            this.price = price;
-        }
+      // 생성자 함수 정의
+      function Product(code, name, price) {
+        this.code = code;
+        this.name = name;
+        this.price = price;
+      }
 
-        // 생성자 함수 호출(객체 생성)
-        var product1 = new Product('A1000', '홈런볼', 1000);
-        var product2 = new Product('A1001', '맛동산', 2000);
+      // 생성자 함수 호출(객체 생성)
+      var product1 = new Product("A1000", "홈런볼", 1000);
+      var product2 = new Product("A1001", "맛동산", 2000);
 
-        console.log(product1);
-        console.log(product2);
-
+      console.log(product1);
+      console.log(product2);
     </script>
 
     <script>
-        
-        /*
+      /*
             프로토타입 (prototype)
             1. 객체들이 공유하는 하나의 메모리 공간을 의미한다.
             2. 공통 데이터(값, 함수 등)를 프로토타입에 저장해서 메모리 공간을 효율적으로 사용할 수 있다.
@@ -212,43 +208,38 @@
                     함수명.prototype.속성 = 값 또는 함수
         */
 
-        // 생성자 함수 정의
-        function Korean(name){
-            this.name = name;
-            this.__proto__.nation = 'South Korea';
-            this.__proto__.capital = 'Seoul';
-            this.__proto__.slogan = function(){
-                console.log('8282');
-            }
-        }
+      // 생성자 함수 정의
+      function Korean(name) {
+        this.name = name;
+        this.__proto__.nation = "South Korea";
+        this.__proto__.capital = "Seoul";
+        this.__proto__.slogan = function () {
+          console.log("8282");
+        };
+      }
 
-        // 생성자 함수 호출 (객체 생성)
-        var person1 = new Korean('정숙');
-        var person2 = new Korean('미희');
+      // 생성자 함수 호출 (객체 생성)
+      var person1 = new Korean("정숙");
+      var person2 = new Korean("미희");
 
-        console.log(person1);
-        console.log(person2);
+      console.log(person1);
+      console.log(person2);
 
+      // 생성자 함수 정의
+      function American(name) {
+        this.name = name;
+      }
 
-        // 생성자 함수 정의
-        function American(name){
-            this.name = name;
-        }
+      // 생성자 함수 외부에서 prototype 속성 등록하기
+      American.prototype.nation = "United State";
+      American.prototype.capital = "Washington DC";
 
-        // 생성자 함수 외부에서 prototype 속성 등록하기
-        American.prototype.nation = 'United State';
-        American.prototype.capital = 'Washington DC';
+      // 생성자 함수 호출 (객체 생성)
+      var person3 = new American("제시카");
+      var person4 = new American("제임스");
 
-        // 생성자 함수 호출 (객체 생성)
-        var person3 = new American('제시카');
-        var person4 = new American('제임스');
-
-        console.log(person3);
-        console.log(person4);
-
+      console.log(person3);
+      console.log(person4);
     </script>
-
-
-
-</body>
+  </body>
 </html>
