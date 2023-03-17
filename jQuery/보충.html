@@ -11,42 +11,42 @@
 
 <body>
 
+       
     <div id="box1">
+        
     </div>
     <script>
+
         // 초기 이미지와 버튼
-        $('#box1').html($('<img>').attr('id', 'light').attr('src', '../../images/light1.png').attr('width', '100px'));
-        $('#box1').append($('<button>').data('state', '0').attr('id', 'btn1').text('OFF'));    //버튼이 이미지보다 앞선 곳에 나타나게 된다.
+        $('#box1').html($('<img>').attr('id','light').attr('src', '../../images/light1.png').attr('width', '100px'));
+        $('#box1').append($('<button>').data('state', '0').attr('id', 'btn1').text('OFF'));
 
         // click 이벤트
-        $('#btn1').click(function (event) {     //모든 이벤트는 메소드로 만들어져있다.
+        $('#btn1').click(function(event){
             /*
-                이벤트 대상(target)을 자바스크립트로 호출하는 방법
+                이벤트 대상(target)
                 1. event.target
                 2. this
             */
-
-
-            // btn1의 data-state=0이면 OFF,data-state="1"이면 ON으로 처리한다.
-            if ($(this).data('state') == 0) {
+            // btn1의 data-state="0"이면 OFF, data-state="1"이면 ON으로 처리한다.
+            if($(this).data('state') === '0'){
                 $('#light').attr('src', '../../images/light2.png');
                 $(this).text('ON').data('state', '1');
             } else {
                 $('#light').attr('src', '../../images/light1.png');
                 $(this).text('OFF').data('state', '0');
-
             }
-
-        }); 
+        });
+        
     </script>
 
     <hr>
 
     <div id="box2">
         <div>
-            <button id="btn_prev">이전</button>
+            <button id="btn_prev" class="btn_move" data-value="-1">이전</button>
             <span id="image_no"></span>
-            <button id="btn_next">다음</button>
+            <button id="btn_next" class="btn_move" data-value="1">다음</button>
         </div>
         <div id="image_box">
 
@@ -56,51 +56,173 @@
         #image_box {
             width: 480px;
             height: 320px;
-            background-size: 100% 100%; /* 100%는 기존에 줬던 사이즈랑 동일한 크기라는 뜻 */
-            background-repeat: no-repeat; /*반복하지 않는다.*/
-            
+            background-size: 100% 100%;  /* 박스와 동일한 크기 */
+            background-repeat: no-repeat;
+        }
+        .btn_move:hover {
+            background-color: teal;
         }
     </style>
     <script>
 
-        // 전역 배열 및 인덱스(모든 함수에서 사용 가능)
+        // 전역 배열 및 인덱스(모든 함수에서 사용할 수 있다.)
         var imageList = ['animal1.jpg', 'architecture1.jpg', 'flower1.jpg', 'fruit1.jpg', 'nature1.jpg'];
         var i = 0;
-        
-        // 이미지와 번호 표시하는 함수
-        function fnImageDisplay(){             //이름있는 함수
-            $('#image_box').css('background-image','url(../../images/' + imageList[i]+ ')');
-            $('#image_no').text((i + 1)+'/'+imageList.length);
+
+        // 이미지와 번호를 표시하는 함수
+        function fnImageDisplay(){
+            $('#image_box').css('background-image', 'url(../../images/' + imageList[i] + ')');
+            $('#image_no').text((i + 1) + '/' + imageList.length);
         }
+
         // 이미지 변경 함수
         function fnImageSlide(n){
             i += n;
-            // i %= imageList.length;      //i의 값이 5가 넘어가지 못하게 막아줌/나머지 값을 이용
-            if (i == imageList.length) {
-                i =0;                           // 시작 인덱스로 고정
-            }else if(i== -1){
-                i = imageList.length -1;        //마지막 인덱스로 고정
+            if(i == imageList.length){
+                i = 0;
+            } else if(i == -1){
+                i = imageList.length - 1;
             }
-
             fnImageDisplay();
         }
 
-        // 이전 버튼 click 이벤트
+        /*
+        이전 버튼 click 이벤트
         $('#btn_prev').click(function(event){
-        fnImageSlide(-1);
+            fnImageSlide(-1);
         });
-        // 다음 버튼 click이벤트
+        다음 버튼 click 이벤트
         $('#btn_next').click(function(event){
-        fnImageSlide(1);
+            fnImageSlide(1);
+        });
+        */
+
+        // 이동 버튼의 click 이벤트 (버튼 텍스트로 이전/다음 구분하기)
+        /*
+        $('.btn_move').click(function(event){
+            if($(this).text()  == '이전'){
+                fnImageSlide(-1);
+            } else {
+                fnImageSlide(1);
+            }
+        });
+        */
+
+        // 이동 버튼의 click 이벤트 (data- 속성을 활용하기)
+        $('.btn_move').click(function(event){
+            fnImageSlide($(this).data('value'));
         });
 
         // 함수 호출
-        fnImageDisplay();      // 불러줘야 실행된다.
+        fnImageDisplay();
+        
+    </script>
 
+    <hr>
 
+    <div id="box3">
+        <div id="origin_image"></div>
+        <ul id="thumbnails"></ul>
+    </div>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #box3 {
+            width: 480px;
+        }
+        #origin_image {
+            width: 100%;
+            height: 320px;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+        }
+        #thumbnails {
+            width: 100%;
+            height: 60px;
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+        }
+        #thumbnails li {
+            width: 60px;
+            height: 100%;
+            margin: 0 10px;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+        }
+    </style>
+    <script>
+
+        // dom
+        var originImage = $('#origin_image');
+        var thumbnails = $('#thumbnails');
+
+        // 이미지 목록(배열)과 인덱스
+        var idx = 0;
+        var thumbnailList = ['flower1.jpg', 'flower2.jpg', 'flower3.jpg', 'flower4.jpg', 'flower5.jpg'];
+
+        // 초기 이미지
+        originImage.css('background-image', 'url(../../images/' + thumbnailList[idx] + ')');
+
+        // 썸네일 이미지 넣기
+        $.each(thumbnailList, (i, element)=>{
+            var li = $('<li>');
+            li.css('background-image', 'url(../../images/' + element + ')');
+            thumbnails.append(li);
+        });
+
+        // 썸네일 이미지에 마우스를 가져가대면 원본 이미지가 변경되는 이벤트
+        $('#thumbnails li').on('mouseover', function(){
+            $(this).css('border', '3px solid orange');
+            originImage.css('background-image', $(this).css('background-image'));
+        })
+        $('#thumbnails li').on('mouseout', function(){
+            $(this).css('border', '0');
+        })
 
     </script>
 
+    <hr>
+
+    <div id="box4"></div>
+    <style>
+        #box4 {
+            width: 480px;
+            height: 320px;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            transition: background-image 1s linear;
+        }
+    </style>
+    <script>
+        var screenList = ['animal2.jpg', 'architecture2.jpg', 'flower2.jpg', 'fruit2.jpg', 'nature2.jpg'];
+        var box4 = $('#box4');
+        box4.css('background-image', 'url(../../images/' + screenList[parseInt(Math.random() * screenList.length)] + ')');
+        setInterval(function(){
+            box4.css('background-image', 'url(../../images/' + screenList[parseInt(Math.random() * screenList.length)] + ')');
+        }, 3000);
+    </script>
+
+    <hr>
+
+    <div>
+        <input type="button" value="선택" id="btn_choice">
+        <h1>숫자 : <span id="numbers"></span></h1>
+        <h1>당첨 : <span id="pick"></span></h1>
+    </div>
+    <script>
+        var balls = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+        $('#numbers').text(balls);
+        $('#btn_choice').on('click', function(){
+            var randNo = parseInt(Math.random() * balls.length);    // 배열 balls의 임의의 인덱스 randNo 생성
+            $('#pick').append(balls.splice(randNo, 1) + '&nbsp;');  // splice(randNo, 1) : 인덱스 randNo부터 1개를 반환한 뒤 제거한다.
+            $('#numbers').text(balls);
+        })
+    </script>
 </body>
 
 </html>
